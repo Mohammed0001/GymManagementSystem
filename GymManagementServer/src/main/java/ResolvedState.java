@@ -5,7 +5,7 @@
 
 /**
  *
- * @author dell
+ * @author Karim 219226
  */
 public class ResolvedState implements ComplaintState{
     private Complaint complaint;
