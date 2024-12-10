@@ -24,16 +24,18 @@ public class InReviewState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-            
+        System.out.println("Complaint ID: " + complaint.getId() + "is currently being reviewed. Details: "+ complaint.getName());
     }
         
     @Override
     public String addFeedback(){
-        
+        complaint.setStatus("Feedback added");
+        return "Feedback has been added and is under consideration.";
     }
     
     @Override
     public void resolve(){
-        
+        System.out.println("Cannot resolve complaint while it is in review");
+
     }
 }

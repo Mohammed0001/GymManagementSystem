@@ -26,7 +26,7 @@ public class PendingState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-        System.out.println("Complainer ID" + complaint.getId() + "is pending for review");
+        System.out.println("Complaint ID" + complaint.getId() + "is pending for review");
     }
     
     @Override
@@ -36,6 +36,6 @@ public class PendingState implements ComplaintState{
     
     @Override
     public void resolve(){
-        System.out.println("");
+        System.out.println("Cannot resolve complaint while it is pending. Needs review first");
     }
 }

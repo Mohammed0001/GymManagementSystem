@@ -113,21 +113,23 @@ public class Complaint {
     }
     
     public void submitComplaint(){
+        this.status = "Submitted";
         this.dateSubmitted = java.time.LocalDate.now().toString();
-        this.status = "Submited";
-        compliantState.viewComplaint();
+        this.compliantState.viewComplaint();
     }
     
     public void addressComplaint(){
-        
+        this.status = "In Review";
+        this.compliantState = new InReviewState(this);
     }
     
     public String getComplaint(){
-        
+        return "Complaint ID: " + id + ",Name: " + name + ", Status" + status;  
     }
     
     public void markResolved(String s){
-        
+        this.status = "Resolved";
+        this.compliantState.resolve();
     }
     
     public abstract String addFeedback();

@@ -9,15 +9,15 @@
  */
 public class Accountant {
     private String accessLevel;
-
+    
     public Accountant(String accessLevel) {
         this.accessLevel = accessLevel;
     }
-
+    
     public String getAccessLevel() {
         return accessLevel;
     }
-
+    
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
     }
@@ -25,7 +25,7 @@ public class Accountant {
     public boolean createAccount(Accountant accountant){
         
     }
-            
+    
     public void processRefundRequest(String req){
         
     } 
