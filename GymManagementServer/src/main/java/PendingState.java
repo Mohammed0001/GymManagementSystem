@@ -26,16 +26,16 @@ public class PendingState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-        
+        System.out.println("Complainer ID" + complaint.getId() + "is pending for review");
     }
     
     @Override
     public String addFeedback(){
-        
+        return "Feedback cannot be added while complaint is pending";
     }
     
     @Override
     public void resolve(){
-        
+        System.out.println("");
     }
 }

@@ -10,7 +10,7 @@
 public class Complaint {
     private int id;
     private String name;
-    private Member complaint;
+    private Member complainer;
     private String email;
     private String dateSubmitted;
     private String resolutionDate;
@@ -19,10 +19,10 @@ public class Complaint {
     private GymManager managedBy;
     private ComplaintState compliantState;
 
-    public Complaint(int id, String name, Member complaint, String email, String dateSubmitted, String resolutionDate, String status, String specialty, GymManager managedBy, ComplaintState compliantState) {
+    public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String specialty, GymManager managedBy, ComplaintState compliantState) {
         this.id = id;
         this.name = name;
-        this.complaint = complaint;
+        this.complainer = complainer;
         this.email = email;
         this.dateSubmitted = dateSubmitted;
         this.resolutionDate = resolutionDate;
@@ -48,12 +48,12 @@ public class Complaint {
         this.name = name;
     }
 
-    public Member getComplaint() {
-        return complaint;
+    public Member getComplainer() {
+        return complainer;
     }
 
-    public void setComplaint(Member complaint) {
-        this.complaint = complaint;
+    public void setComplainer(Member complainer) {
+        this.complainer = complainer;
     }
 
     public String getEmail() {
@@ -113,7 +113,9 @@ public class Complaint {
     }
     
     public void submitComplaint(){
-        
+        this.dateSubmitted = java.time.LocalDate.now().toString();
+        this.status = "Submited";
+        compliantState.viewComplaint();
     }
     
     public void addressComplaint(){
@@ -128,15 +130,14 @@ public class Complaint {
         
     }
     
-    public String addFeedback(){
-        
-    }
+    public abstract String addFeedback();
     
-    public void viewComplaint(){
-        
-    }
+    public abstract void viewComplaint();
     
-    public void resolve(){
-        
-    }
+    public abstract void resolve();
+
+    @Override
+    public String toString() {
+        return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", specialty=" + specialty + ", managedBy=" + managedBy + ", compliantState=" + compliantState + '}';
+    }   
 }
