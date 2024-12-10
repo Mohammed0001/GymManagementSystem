@@ -7,10 +7,11 @@
  *
  * @author Karim 219226
  */
-public class Accountant {
+public class Accountant extends Person{
     private String accessLevel;
-    
-    public Accountant(String accessLevel) {
+
+    public Accountant(int id, String name, int phoneNumber, String DOB, String email, String accessLevel) {
+        super(id, name, phoneNumber, DOB, email);
         this.accessLevel = accessLevel;
     }
     
