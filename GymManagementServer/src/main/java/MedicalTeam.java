@@ -29,4 +29,9 @@ public class MedicalTeam {
     public void provideHealthRecommendation(){
         
     }
+
+    @Override
+    public String toString() {
+        return "MedicalTeam{" + "specialization=" + specialization + '}';
+    }
 }
