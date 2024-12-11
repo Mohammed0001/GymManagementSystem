@@ -30,9 +30,4 @@ public class MedicalTeam extends Person{
     public void provideHealthRecommendation(){
         
     }
-
-    @Override
-    public String toString() {
-        return "MedicalTeam{" + "specialization=" + specialization + '}';
-    }
 }
