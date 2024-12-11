@@ -38,7 +38,6 @@ public class DBConnector {
         client = new MongoClient();
         database = client.getDatabase("GymManagement"); // Database name
         collection = database.getCollection("Depertmant"); // Collection name
-
     }
 
     public boolean inserIntoDB(Object obj, String coll) {

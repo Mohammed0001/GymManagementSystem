@@ -9,25 +9,22 @@
  */
 public class Accountant extends Person{
     private String accessLevel;
-
+    
     public Accountant(int id, String name, int phoneNumber, String DOB, String email, String accessLevel) {
         super(id, name, phoneNumber, DOB, email);
         this.accessLevel = accessLevel;
     }
-
+    
     public String getAccessLevel() {
         return accessLevel;
     }
-
+    
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
     }
     
     public boolean createAccount(Accountant accountant){
-        
+        String newAccountant = "Insert into 'Person' (name, phoneNumber, DOB, email) VALUES ('"+this.getName()"' ,'"+this.getPhoneNumber()"' , '"+this.getDOB()"', '"+this.getEmail()"', 'Accountant')";
+        return DBConnector.inserIntoDB(newAccountant, "Accountant");
     }
-    
-    public void processRefundRequest(String req){
-        
-    } 
 }
