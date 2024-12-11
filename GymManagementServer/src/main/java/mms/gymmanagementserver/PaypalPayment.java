@@ -4,6 +4,8 @@
  */
 package mms.gymmanagementserver;
 
+import rmi.PaymentStrategy;
+
 /**
  *
  * @author hp

@@ -4,13 +4,12 @@
  */
 package mms.gymmanagementserver;
 
-/**
- *
- * @author hp
- */
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import rmi.PaymentStrategy;
 import java.util.Date;
 
-public class Payment {
+public class Payment extends UnicastRemoteObject implements PaymentStrategy{
     private int id;
     private int memberID;
     private double amount;
@@ -31,6 +30,11 @@ public class Payment {
         this.date = new Date().toString();
         this.paymentStrategy = paymentStrategy;
     }
+
+    public Payment() throws RemoteException {
+    }
+    
+    
 
     public boolean makePayment() {
         if (paymentStrategy.processPayment(amount, currency)) {
@@ -55,5 +59,20 @@ public class Payment {
 
     public String getPaymentStatus() {
         return status;
+    }
+
+    @Override
+    public boolean processPayment(double amount, String currency) throws RemoteException{
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean validateTransaction() throws RemoteException{
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean retryPayment(double amount, int retries) throws RemoteException{
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
