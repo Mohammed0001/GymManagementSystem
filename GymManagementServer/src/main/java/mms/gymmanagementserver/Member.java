@@ -9,7 +9,7 @@ package mms.gymmanagementserver;
  *
  * @author sarahhali
  */
-public class Member {
+public class Member extends Person, Progress, Subscription {
 
     // Attributes
     private MemberProgressROI progress;
