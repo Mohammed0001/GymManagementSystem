@@ -14,11 +14,11 @@ public class Accountant extends Person{
         super(id, name, phoneNumber, DOB, email);
         this.accessLevel = accessLevel;
     }
-    
+
     public String getAccessLevel() {
         return accessLevel;
     }
-    
+
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
     }

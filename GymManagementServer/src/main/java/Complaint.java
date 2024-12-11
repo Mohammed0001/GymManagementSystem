@@ -132,11 +132,18 @@ public class Complaint {
         this.compliantState.resolve();
     }
     
-    public abstract String addFeedback();
+    public String addFeedback(){
+    String m = compliantState.addFeedback();
+    return m;
+    }
     
-    public abstract void viewComplaint();
+    public void viewComplaint(){
+        compliantState.viewComplaint();
+    }
     
-    public abstract void resolve();
+    public void resolve(){
+        compliantState.resolve();
+    }
 
     @Override
     public String toString() {
