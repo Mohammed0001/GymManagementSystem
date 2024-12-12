@@ -123,7 +123,7 @@ public class Subscription {
 
     public boolean isActive() {
         LocalDate currentDate = LocalDate.now();
-        LocalDate endDate = LocalDate.parse(this.endDate);
-        return endDate.isAfter(currentDate) || endDate.isEqual(currentDate);
+        LocalDate lastDate = LocalDate.parse(this.endDate);
+        return lastDate.isAfter(currentDate) || lastDate.isEqual(currentDate);
     }
 }
