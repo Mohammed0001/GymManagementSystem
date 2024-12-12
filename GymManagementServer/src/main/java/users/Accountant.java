@@ -14,8 +14,8 @@ import <any?>;
 public class Accountant extends Person{
     private String accessLevel;
 
-    public Accountant(int id, String name, int phoneNumber, String DOB, String email, String accessLevel) {
-        super(id, name, phoneNumber, DOB, email);
+    public Accountant(int id, String name, int phoneNumber, String DOB, String email,String password, String accessLevel) {
+        super(id, name, phoneNumber, DOB, email,password);
         this.accessLevel = accessLevel;
     }
     
@@ -30,8 +30,4 @@ public class Accountant extends Person{
     public boolean createAccount(Accountant accountant){
         
     }
-    
-    public void processRefundRequest(String req){
-        
-    } 
 }
