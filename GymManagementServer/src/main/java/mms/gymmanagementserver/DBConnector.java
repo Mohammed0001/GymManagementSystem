@@ -1,45 +1,49 @@
 
 package mms.gymmanagementserver;
 
-/**
- *
- * @author Mohammed ABou Bakr
- */
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.CreateCollectionOptions;
 import com.mongodb.client.model.Filters;
 import static com.mongodb.client.model.Filters.eq;
-import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bson.Document;
-import org.bson.types.ObjectId;
+import users.Person;
 
+/**
+ *
+ * @author Mohammed ABou Bakr
+ */
 public class DBConnector {
 
     private MongoClient client;
     private MongoDatabase database;
     private MongoCollection<Document> collection;
-    private Gson gson = new Gson();
+    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    ;
+    private static DBConnector activeConn;
 
-    public DBConnector() {
+    private DBConnector() {
         Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
         mongoLogger.setLevel(Level.SEVERE);
-
         // Initialize
         client = new MongoClient();
         database = client.getDatabase("GymManagement"); // Database name
         collection = database.getCollection("Depertmant"); // Collection name
+    }
 
+    public static DBConnector connectDB() {
+        if (activeConn == null) {
+            activeConn = new DBConnector();
+        }
+        return activeConn;
     }
 
     public boolean inserIntoDB(Object obj, String coll) {
@@ -55,13 +59,13 @@ public class DBConnector {
         return true;
     }
 
-    public ArrayList<Object> readAllFromDB(String coll, Class<?> cls) {
-        ArrayList<Object> results = new ArrayList<>();
+    public <T> ArrayList<T> readAllFromDB(String coll, Class<T> cls) {
+        ArrayList<T> results = new ArrayList<>();
         collection = database.getCollection(coll);
         try {
             FindIterable<Document> documents = collection.find();
             for (Document document : documents) {
-                Object obj = gson.fromJson(document.toJson(), cls);
+                T obj = gson.fromJson(document.toJson(), cls);
                 results.add(obj);
             }
         } catch (Exception e) {
@@ -106,6 +110,20 @@ public class DBConnector {
             System.out.println("Error Delete : " + e);
             return false;
         }
+    }
+
+    public Person login(String email, String password) {
+        collection = database.getCollection("Person");
+        Person result = null;
+        try {
+            Document document = collection.find(Filters.and(Filters.eq("email", email), Filters.eq("password", password))).first();
+            if (document != null) {
+                result = gson.fromJson(document.toJson(), Person.class);
+            }
+        } catch (Exception e) {
+            System.out.println("Error Read: " + e);
+        }
+        return result;
     }
 
     public boolean runOnce() {

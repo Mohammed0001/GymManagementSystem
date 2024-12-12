@@ -1,26 +1,43 @@
 
 package users;
 
+import com.google.gson.annotations.Expose;
+import java.rmi.RemoteException;
+import mms.gymmanagementserver.DBConnector;
+import rmipack.IUserAuth;
+
 /**
  *
  * @author Mohammed Abou Bakr
  */
-public class Person  {
+public class Person  implements IUserAuth{
 
+    @Expose
     private int id;
+    @Expose
     private String name;
+    @Expose
     private int phoneNumber;
+    @Expose
     private String DOB;
+    @Expose
     private String email;
+    @Expose
     private String password;
+    @Expose
+    private String role;
+    private DBConnector DB = DBConnector.connectDB();
 
-    public Person(int id, String name, int phoneNumber, String DOB, String email, String password) {
+    public Person(){};
+    
+    public Person(int id, String name, int phoneNumber, String DOB, String email, String password ,String role) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.DOB = DOB;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public int getId() {
@@ -73,6 +90,16 @@ public class Person  {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + ", password=" + password + '}';
+        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + ", password=" + password + ", Role= " + role +')';
+    }
+
+    @Override
+    public Person login(String email, String password) throws RemoteException {
+       return DB.login(email, password);
+    }
+
+    @Override
+    public boolean createAccount() throws RemoteException {
+       return DB.inserIntoDB(this, "Person");
     }
 }
