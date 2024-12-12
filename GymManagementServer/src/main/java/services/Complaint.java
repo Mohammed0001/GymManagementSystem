@@ -1,4 +1,8 @@
+
 package services;
+
+import users.Gymmanager;
+import users.Member;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,6 +14,7 @@ package services;
  * @author Karim 219226
  */
 public class Complaint {
+    
     private int id;
     private String name;
     private Member complainer;
@@ -18,7 +23,7 @@ public class Complaint {
     private String resolutionDate;
     private String status;
     private String specialty;
-    private GymManager managedBy;
+    private Gymmanager managedBy;
     private ComplaintState compliantState;
 
     public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String specialty, GymManager managedBy, ComplaintState compliantState) {
@@ -134,11 +139,17 @@ public class Complaint {
         this.compliantState.resolve();
     }
     
-    public abstract String addFeedback();
+    public String addFeedback(){
+
+    }
     
-    public abstract void viewComplaint();
+    public void viewComplaint(){
+        
+    }
     
-    public abstract void resolve();
+    public void resolve(){
+        
+    }
 
     @Override
     public String toString() {

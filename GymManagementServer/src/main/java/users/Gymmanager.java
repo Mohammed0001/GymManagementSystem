@@ -1,8 +1,9 @@
+
 package users;
 
 
-import <any?>;
 import java.util.List;
+import mms.gymmanagementserver.Branch;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,10 +15,11 @@ import java.util.List;
  * @author kanzihaitham
  */
 public class Gymmanager extends Person {
+    
     private Branch branch;
 
-    public GymManager(int id, String name, int phoneNumber, String DOB, String email, Branch branch) {
-        super(id, name, phoneNumber, DOB, email); // Call the superclass constructor
+    public Gymmanager(int id, String name, int phoneNumber, String DOB, String email,String password, Branch branch) {
+        super(id, name, phoneNumber, DOB, email, password); 
         this.branch = branch;
     }
     // Getter for branch
