@@ -26,7 +26,7 @@ public class Complaint {
     private Gymmanager managedBy;
     private ComplaintState compliantState;
 
-    public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String specialty, GymManager managedBy, ComplaintState compliantState) {
+    public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String feedback, Gymmanager managedBy, ComplaintState compliantState) {
         this.id = id;
         this.name = name;
         this.complainer = complainer;
@@ -103,11 +103,11 @@ public class Complaint {
         this.feedback = feedback;
     }
 
-    public GymManager getManagedBy() {
+    public Gymmanager getManagedBy() {
         return managedBy;
     }
 
-    public void setManagedBy(GymManager managedBy) {
+    public void setManagedBy(Gymmanager managedBy) {
         this.managedBy = managedBy;
     }
 
@@ -136,7 +136,7 @@ public class Complaint {
     
     public void markResolved(String s){
         this.status = "Resolved";
-        this.compliantState.resolve();
+        this.compliantState.resolved();
     }
     
     public String addFeedback(){

@@ -16,27 +16,33 @@ public class PendingState implements ComplaintState{
     
     private Complaint complaint;
     private DBConnector DB = DBConnector.connectDB();
-
-
+    
     public PendingState(Complaint complaint) {
         this.complaint = complaint;
     }
-
+    
     public Complaint getComplaint() {
         return complaint;
     }
-
+    
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }
     
     @Override
     public void viewComplaint(){
-        DB.readFromDB(0, "Subscription", cls);
+        DB.readFromDB(0, "Complaint",Complaint.class);
     }
     
     @Override
-    public String addFeedback(){
-        System.out.println("This complain is pending for review");
+    public void addFeedback(){
+        System.out.println("This complaint is pending for review.");
+        DB.updateInDB(0, this, "Complaint");
+    }
+    
+    @Override
+    public void resolved(){
+        System.out.println("This complaint is still pinding for review.");
+        DB.updateInDB(0, this, "Complaint");
     }
 }

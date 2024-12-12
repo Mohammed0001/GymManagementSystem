@@ -13,6 +13,6 @@ package services;
 public interface ComplaintState{
     
     public void viewComplaint();
-    public String addFeedback();
-    public void resolve();
+    public void addFeedback();
+    public void resolved();
 }

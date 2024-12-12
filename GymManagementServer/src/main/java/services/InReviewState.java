@@ -31,16 +31,17 @@ public class InReviewState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-        DB.readFromDB(0, coll, cls)
+        DB.readFromDB(0, "Complaint",Complaint.class);
     }
     
     @Override
-    public String addFeedback(){
+    public void addFeedback(){
         DB.inserIntoDB(this, "Complaint");
     }
     
     @Override
-    public void resolve(){
-        DB.inserIntoDB(this, "Complaint");
+    public void resolved(){
+        System.out.println("This Complaint is in review and will be solved in a couple of days. Thank you");
+        DB.updateInDB(0, this, "Complaint");
     }
 }

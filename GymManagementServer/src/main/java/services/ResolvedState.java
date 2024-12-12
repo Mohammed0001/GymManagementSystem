@@ -30,11 +30,16 @@ public class ResolvedState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-        DB.readFromDB(0, coll, cls);
+        DB.readFromDB(0, "Complaint",Complaint.class);
     }
     
     @Override
-    public String addFeedback(){
-        DB.updateInDB(0, this, "Subscription");
+    public void addFeedback(){
+        System.out.println("This complaint is already resolved.");
+    }
+    
+    @Override
+    public void resolved(){
+        DB.updateInDB(0, this, "Complaint");
     }
 }
