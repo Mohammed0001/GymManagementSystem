@@ -2,17 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package rmi;
+package rmipack;
+
+import java.io.Serializable;
+
 /**
  *
  * @author sarahhali
  */
-public class Subscription {
+public class SubscriptionDTO implements Serializable{
     // Attributes
     private int id;
     private String type;
     private double price;
-    private String description;
     private boolean isRenewable;
     private Payment payment; // Assuming Payment is another class
     private double discount;
@@ -20,12 +22,11 @@ public class Subscription {
     private String endDate;
 
     // Constructor
-    public Subscription(int id, String type, double price, String description, boolean isRenewable,
-                        Payment payment, double discount, String startDate, String endDate) {
+    public SubscriptionDTO(int id, String type, double price, boolean isRenewable,
+                           Payment payment, double discount, String startDate, String endDate) {
         this.id = id;
         this.type = type;
         this.price = price;
-        this.description = description;
         this.isRenewable = isRenewable;
         this.payment = payment;
         this.discount = discount;
@@ -56,14 +57,6 @@ public class Subscription {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public boolean isRenewable() {
@@ -106,44 +99,13 @@ public class Subscription {
         this.endDate = endDate;
     }
 
-    // Methods
-    public void activateSubscription() {
-        System.out.println("Subscription activated!");
-        // Add activation logic
-    }
-
-    public void cancelSubscription() {
-        System.out.println("Subscription canceled!");
-        // Add cancellation logic
-    }
-
-    public void renew() {
-        if (isRenewable) {
-            System.out.println("Subscription renewed!");
-            // Add renewal logic
-        } else {
-            System.out.println("This subscription is not renewable.");
-        }
-    }
-
-    public double calculateFinalPrice() {
-        return price - (price * (discount / 100));
-    }
-
-    public boolean isActive() {
-        // Logic to check if the subscription is currently active
-        // Example: Compare current date with startDate and endDate
-        return true; // Placeholder
-    }
-
-    // toString Method for debugging or printing
+    // toString Method for debugging or display
     @Override
     public String toString() {
-        return "Subscription{" +
+        return "SubscriptionDTO{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", description='" + description + '\'' +
                 ", isRenewable=" + isRenewable +
                 ", payment=" + payment +
                 ", discount=" + discount +
@@ -152,4 +114,3 @@ public class Subscription {
                 '}';
     }
 }
-
