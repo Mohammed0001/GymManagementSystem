@@ -32,16 +32,11 @@ public class PendingState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-        
+        DB.readFromDB(0, "Subscription", cls);
     }
     
     @Override
     public String addFeedback(){
-        System.out.println("");
-    }
-    
-    @Override
-    public void resolve(){
-        DB.inserIntoDB(this, "Complaint");
+        System.out.println("This complain is pending for review");
     }
 }

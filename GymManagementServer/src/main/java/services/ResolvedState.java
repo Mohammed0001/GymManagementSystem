@@ -1,6 +1,8 @@
 
 package services;
 
+import mms.gymmanagementserver.DBConnector;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -12,6 +14,7 @@ package services;
  */
 public class ResolvedState implements ComplaintState{
     private Complaint complaint;
+    private DBConnector DB = DBConnector.connectDB();
     
     public ResolvedState(Complaint complaint) {
         this.complaint = complaint;
@@ -27,16 +30,11 @@ public class ResolvedState implements ComplaintState{
     
     @Override
     public void viewComplaint(){
-
+        DB.readFromDB(0, coll, cls);
     }
     
     @Override
     public String addFeedback(){
-
-    }
-    
-    @Override
-    public void resolve(){
-
+        DB.updateInDB(0, this, "Subscription");
     }
 }
