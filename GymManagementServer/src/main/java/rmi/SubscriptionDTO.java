@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package rmi;
-
+import finance.Payment;
 import java.io.Serializable;
 
 /**
