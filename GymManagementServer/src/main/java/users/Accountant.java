@@ -30,4 +30,9 @@ public class Accountant extends Person{
     public boolean createAccount(Accountant accountant){
         
     }
+
+    @Override
+    public String toString() {
+        return "Accountant{" + "accessLevel=" + accessLevel + '}';
+    }
 }

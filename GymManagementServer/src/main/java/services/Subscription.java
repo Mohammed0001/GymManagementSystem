@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Karim 219226 and kanzi
+ * @author Karim 219226
  */
 public class Subscription {
     private int id;
