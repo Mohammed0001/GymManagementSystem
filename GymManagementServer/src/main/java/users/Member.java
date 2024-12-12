@@ -10,7 +10,7 @@ import services.IMemberProgressROI;
  *
  * @author sarahhali
  */
-public class Member extends Person implements Serializable {
+public class Member extends Person implements Serializable  {
 
     // Attributes
     @Expose
