@@ -1,6 +1,5 @@
-package users;
 
-import <any?>;
+package users;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,8 +13,8 @@ import <any?>;
 public class Accountant extends Person{
     private String accessLevel;
 
-    public Accountant(int id, String name, int phoneNumber, String DOB, String email, String accessLevel) {
-        super(id, name, phoneNumber, DOB, email);
+    public Accountant(int id, String name, int phoneNumber, String DOB, String email,String password, String accessLevel) {
+        super(id, name, phoneNumber, DOB, email,password);
         this.accessLevel = accessLevel;
     }
     
@@ -26,12 +25,9 @@ public class Accountant extends Person{
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
     }
-    
-    public boolean createAccount(Accountant accountant){
-        
+
+    @Override
+    public String toString() {
+        return "Accountant{" + "accessLevel=" + accessLevel + '}';
     }
-    
-    public void processRefundRequest(String req){
-        
-    } 
 }

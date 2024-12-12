@@ -9,10 +9,11 @@ package users;
  *
  * @author Karim 219226
  */
-public class MedicalTeam {
+public class MedicalTeam extends Person{
     private String specialization;
     
-    public MedicalTeam(String specialization) {
+    public MedicalTeam(int id, String name, int phoneNumber, String DOB, String email, String password, String specialization) {
+        super(id, name, phoneNumber, DOB, email, password);
         this.specialization = specialization;
     }
     
