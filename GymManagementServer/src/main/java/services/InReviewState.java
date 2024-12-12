@@ -1,7 +1,7 @@
+
 package services;
 
-
-import services.Complaint;
+import mms.gymmanagementserver.DBConnector;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,33 +14,33 @@ import services.Complaint;
  */
 public class InReviewState implements ComplaintState{
     private Complaint complaint;
+    private DBConnector DB = DBConnector.connectDB();
 
+    
     public InReviewState(Complaint complaint) {
         this.complaint = complaint;
     }
-
+    
     public Complaint getComplaint() {
         return complaint;
     }
-
+    
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }
     
     @Override
     public void viewComplaint(){
-        System.out.println("Complaint ID: " + complaint.getId() + "is currently being reviewed. Details: "+ complaint.getName());
+        DB.readFromDB(0, coll, cls)
     }
-        
+    
     @Override
     public String addFeedback(){
-        complaint.setStatus("Feedback added");
-        return "Feedback has been added and is under consideration.";
+        DB.inserIntoDB(this, "Complaint");
     }
     
     @Override
     public void resolve(){
-        System.out.println("Cannot resolve complaint while it is in review");
-
+        DB.inserIntoDB(this, "Complaint");
     }
 }

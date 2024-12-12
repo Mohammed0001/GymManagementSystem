@@ -1,3 +1,4 @@
+
 package services;
 
 /*
@@ -9,7 +10,7 @@ package services;
  *
  * @author Karim 219226
  */
-public interface ComplaintState {
+public interface ComplaintState{
     
     public void viewComplaint();
     public String addFeedback();

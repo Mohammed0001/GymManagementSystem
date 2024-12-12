@@ -1,7 +1,7 @@
+
 package services;
 
-
-import services.Complaint;
+import mms.gymmanagementserver.DBConnector;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,6 +15,8 @@ import services.Complaint;
 public class PendingState implements ComplaintState{
     
     private Complaint complaint;
+    private DBConnector DB = DBConnector.connectDB();
+
 
     public PendingState(Complaint complaint) {
         this.complaint = complaint;
@@ -28,19 +30,18 @@ public class PendingState implements ComplaintState{
         this.complaint = complaint;
     }
     
-    
     @Override
     public void viewComplaint(){
-        System.out.println("Complaint ID" + complaint.getId() + "is pending for review");
+        
     }
     
     @Override
     public String addFeedback(){
-        return "Feedback cannot be added while complaint is pending";
+        System.out.println("");
     }
     
     @Override
     public void resolve(){
-        System.out.println("Cannot resolve complaint while it is pending. Needs review first");
+        DB.inserIntoDB(this, "Complaint");
     }
 }

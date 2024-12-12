@@ -22,7 +22,7 @@ public class Complaint {
     private String dateSubmitted;
     private String resolutionDate;
     private String status;
-    private String specialty;
+    private String feedback;
     private Gymmanager managedBy;
     private ComplaintState compliantState;
 
@@ -34,7 +34,7 @@ public class Complaint {
         this.dateSubmitted = dateSubmitted;
         this.resolutionDate = resolutionDate;
         this.status = status;
-        this.specialty = specialty;
+        this.feedback = feedback;
         this.managedBy = managedBy;
         this.compliantState = compliantState;
     }
@@ -95,12 +95,12 @@ public class Complaint {
         this.status = status;
     }
 
-    public String getSpecialty() {
-        return specialty;
+    public String getfeedback() {
+        return feedback;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setfeedback(String feedback) {
+        this.feedback = feedback;
     }
 
     public GymManager getManagedBy() {
@@ -140,7 +140,7 @@ public class Complaint {
     }
     
     public String addFeedback(){
-
+        
     }
     
     public void viewComplaint(){
@@ -153,6 +153,6 @@ public class Complaint {
 
     @Override
     public String toString() {
-        return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", specialty=" + specialty + ", managedBy=" + managedBy + ", compliantState=" + compliantState + '}';
+        return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", feedback=" + feedback + ", managedBy=" + managedBy + ", compliantState=" + compliantState + '}';
     }   
 }

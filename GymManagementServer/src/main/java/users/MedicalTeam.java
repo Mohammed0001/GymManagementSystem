@@ -12,8 +12,8 @@ package users;
 public class MedicalTeam extends Person{
     private String specialization;
     
-    public MedicalTeam(int id, String name, int phoneNumber, String DOB, String email, String password, String specialization) {
-        super(id, name, phoneNumber, DOB, email, password);
+    public MedicalTeam(int id, String name, int phoneNumber, String DOB, String email, String password, String role, String specialization) {
+        super(id, name, phoneNumber, DOB, email, password, role);
         this.specialization = specialization;
     }
     

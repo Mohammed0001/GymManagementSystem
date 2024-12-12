@@ -13,8 +13,8 @@ package users;
 public class Accountant extends Person{
     private String accessLevel;
 
-    public Accountant(int id, String name, int phoneNumber, String DOB, String email,String password, String accessLevel) {
-        super(id, name, phoneNumber, DOB, email,password);
+    public Accountant(int id, String name, int phoneNumber, String DOB, String email,String password,String role, String accessLevel) {
+        super(id, name, phoneNumber, DOB, email, password, role);
         this.accessLevel = accessLevel;
     }
     
