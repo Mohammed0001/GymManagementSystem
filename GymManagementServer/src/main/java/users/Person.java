@@ -11,13 +11,15 @@ public class Person  {
     private int phoneNumber;
     private String DOB;
     private String email;
+    private String password;
 
-    public Person(int id, String name, int phoneNumber, String DOB, String email) {
+    public Person(int id, String name, int phoneNumber, String DOB, String email, String password) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.DOB = DOB;
         this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -60,8 +62,16 @@ public class Person  {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + '}';
+        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + ", password=" + password + '}';
     }
 }
