@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package mms.GUI;
 
 import users.Person;
 
 /**
  *
- * @author mabou
+ * @author Mohammed ABou Bakr
  */
 public class GeneralManagerGUI extends javax.swing.JFrame {
 
     Person p;
+
     public GeneralManagerGUI(Person p) {
         this.p = p;
         initComponents();
         this.greatingLabel.setText("Welcome! " + p.getName());
-                
+
     }
 
     @SuppressWarnings("unchecked")
@@ -130,21 +127,24 @@ public class GeneralManagerGUI extends javax.swing.JFrame {
 
     private void managAccBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managAccBTNActionPerformed
         new manageAccountsGUI(p).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_managAccBTNActionPerformed
 
     private void manageClassesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassesBTNActionPerformed
         // TODO add your handling code here:
-          new manageClassesGUI(p).setVisible(true);
+        new manageClassesGUI(p).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_manageClassesBTNActionPerformed
 
     private void manageEquipmentBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEquipmentBTNActionPerformed
         new manageEquipmentsGUI(p).setVisible(true);
-
+        this.setVisible(false);
     }//GEN-LAST:event_manageEquipmentBTNActionPerformed
 
     private void addressComplaintsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressComplaintsBTNActionPerformed
         // TODO add your handling code here:
         new addressComplaintsGUI(p).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_addressComplaintsBTNActionPerformed
 
     private void manageClassesBTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassesBTN4ActionPerformed
@@ -153,11 +153,9 @@ public class GeneralManagerGUI extends javax.swing.JFrame {
 
     private void viewBranchesReportBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBranchesReportBTNActionPerformed
         new viewBranchesReportGUI(p).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_viewBranchesReportBTNActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addressComplaintsBTN;

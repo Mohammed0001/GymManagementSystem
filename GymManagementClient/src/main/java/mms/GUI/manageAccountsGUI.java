@@ -26,9 +26,10 @@ public class manageAccountsGUI extends javax.swing.JFrame {
 
         manageClassesBTN4 = new javax.swing.JButton();
         greatingLabel = new javax.swing.JLabel();
+        greatingLabel1 = new javax.swing.JLabel();
+        homeBTN3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         accountsTable = new javax.swing.JTable();
-        greatingLabel1 = new javax.swing.JLabel();
 
         manageClassesBTN4.setText("Address Complaints");
         manageClassesBTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -39,6 +40,15 @@ public class manageAccountsGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        greatingLabel1.setText("Manage Accounts");
+
+        homeBTN3.setText("Home");
+        homeBTN3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTN3ActionPerformed(evt);
+            }
+        });
 
         accountsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,22 +63,22 @@ public class manageAccountsGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(accountsTable);
 
-        greatingLabel1.setText("Manage Accounts");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(greatingLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(greatingLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(homeBTN3)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,8 +89,10 @@ public class manageAccountsGUI extends javax.swing.JFrame {
                     .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(greatingLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(homeBTN3)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +103,13 @@ public class manageAccountsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_manageClassesBTN4ActionPerformed
 
+    private void homeBTN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTN3ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new GeneralManagerGUI(p).setVisible(true);
+
+    }//GEN-LAST:event_homeBTN3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -99,6 +118,10 @@ public class manageAccountsGUI extends javax.swing.JFrame {
     private javax.swing.JTable accountsTable;
     private javax.swing.JLabel greatingLabel;
     private javax.swing.JLabel greatingLabel1;
+    private javax.swing.JButton homeBTN;
+    private javax.swing.JButton homeBTN1;
+    private javax.swing.JButton homeBTN2;
+    private javax.swing.JButton homeBTN3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageClassesBTN4;
     // End of variables declaration//GEN-END:variables

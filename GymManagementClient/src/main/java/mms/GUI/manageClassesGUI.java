@@ -26,9 +26,10 @@ public class manageClassesGUI extends javax.swing.JFrame {
 
         manageClassesBTN4 = new javax.swing.JButton();
         greatingLabel = new javax.swing.JLabel();
+        greatingLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         accountsTable = new javax.swing.JTable();
-        greatingLabel1 = new javax.swing.JLabel();
+        homeBTN = new javax.swing.JButton();
 
         manageClassesBTN4.setText("Address Complaints");
         manageClassesBTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -39,6 +40,8 @@ public class manageClassesGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        greatingLabel1.setText("Manage Classes");
 
         accountsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,7 +56,12 @@ public class manageClassesGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(accountsTable);
 
-        greatingLabel1.setText("Manage Classes");
+        homeBTN.setText("Home");
+        homeBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,13 +69,15 @@ public class manageClassesGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(homeBTN)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                         .addComponent(greatingLabel1)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
@@ -78,9 +88,11 @@ public class manageClassesGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(greatingLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(homeBTN)
+                .addContainerGap())
         );
 
         pack();
@@ -91,6 +103,13 @@ public class manageClassesGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_manageClassesBTN4ActionPerformed
 
+    private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTNActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new GeneralManagerGUI(p).setVisible(true);
+
+    }//GEN-LAST:event_homeBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -99,6 +118,9 @@ public class manageClassesGUI extends javax.swing.JFrame {
     private javax.swing.JTable accountsTable;
     private javax.swing.JLabel greatingLabel;
     private javax.swing.JLabel greatingLabel1;
+    private javax.swing.JButton homeBTN;
+    private javax.swing.JButton homeBTN3;
+    private javax.swing.JButton homeBTN4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageClassesBTN4;
     // End of variables declaration//GEN-END:variables

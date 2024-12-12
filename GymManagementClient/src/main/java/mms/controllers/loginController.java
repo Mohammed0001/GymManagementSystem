@@ -24,7 +24,7 @@ public class loginController {
     public loginController() {
         try {
             this.registry = LocateRegistry.getRegistry(1099);
-            this.userAuth = (IUserAuth) registry.lookup("GymSystemFacade");
+            this.userAuth = (IUserAuth) registry.lookup("MohammedFacade");
 
         } catch (RemoteException ex) {
             Logger.getLogger(loginController.class.getName()).log(Level.SEVERE, null, ex);

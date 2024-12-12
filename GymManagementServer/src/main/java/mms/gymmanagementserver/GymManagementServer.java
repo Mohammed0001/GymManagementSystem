@@ -21,7 +21,7 @@ public class GymManagementServer {
         // ------------------------- STRAT RMI -------------------------
         try {
 
-            Registry registry = LocateRegistry.createRegistry(1099);
+            Registry registry ;//= LocateRegistry.createRegistry(1099);
             if (LocateRegistry.getRegistry(1099) != null) {
                 registry = LocateRegistry.getRegistry(1099);
             } else {
