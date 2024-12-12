@@ -1,10 +1,10 @@
-package rmi;
+package users;
 
 /**
  *
  * @author Mohammed Abou Bakr
  */
-public class Person {
+public class Person  {
 
     private int id;
     private String name;

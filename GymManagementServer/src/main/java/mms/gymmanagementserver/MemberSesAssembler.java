@@ -4,6 +4,8 @@
  */
 package mms.gymmanagementserver;
 
+import users.Member;
+
 /**
  *
  * @author hp

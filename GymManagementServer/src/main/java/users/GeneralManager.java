@@ -1,5 +1,7 @@
 
-package rmi;
+package users;
+
+import users.Person;
 
 /**
  *

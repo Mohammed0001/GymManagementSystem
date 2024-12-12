@@ -3,7 +3,6 @@
 package mms.gymmanagementserver;
 
 import java.util.ArrayList;
-import rmi.DBConnector;
 
 /**
  *

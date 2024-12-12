@@ -1,4 +1,7 @@
-package mms.gymmanagementserver;
+package users;
+
+import services.Subscription;
+import mms.gymmanagementserver.Person;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
