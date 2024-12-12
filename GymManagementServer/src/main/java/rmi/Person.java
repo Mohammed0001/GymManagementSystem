@@ -1,18 +1,17 @@
-
 package rmi;
 
 /**
  *
- * @author Mohammed Abou Bakr 
+ * @author Mohammed Abou Bakr
  */
 public class Person {
-    
+
     private int id;
     private String name;
     private int phoneNumber;
     private String DOB;
     private String email;
-    
+
     public Person(int id, String name, int phoneNumber, String DOB, String email) {
         this.id = id;
         this.name = name;
@@ -59,5 +58,10 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + '}';
     }
 }

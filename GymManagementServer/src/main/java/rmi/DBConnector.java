@@ -69,13 +69,13 @@ public class DBConnector {
         return results;
     }
 
-    public Object readFromDB(String id, String coll, Class<?> cls) {
+    public <T> T readFromDB(int id, String coll, Class<?> cls) {
         collection = database.getCollection(coll);
-        Object result = null;
+        T result = null;
         try {
-            Document document = collection.find(eq("_id", new ObjectId(id))).first();
+            Document document = collection.find(eq("id", id)).first();
             if (document != null) {
-                result = gson.fromJson(document.toJson(), cls);
+                result = (T) gson.fromJson(document.toJson(), cls);
             }
         } catch (Exception e) {
             System.out.println("Error Read: " + e);
@@ -83,12 +83,12 @@ public class DBConnector {
         return result;
     }
 
-    public boolean updateInDB(String id, Object obj, String coll) {
+    public boolean updateInDB(int id, Object obj, String coll) {
         String json = gson.toJson(obj);
         Document document = Document.parse(json);
         collection = database.getCollection(coll);
         try {
-            UpdateResult result = collection.replaceOne(eq("_id", new ObjectId(id)), document);
+            UpdateResult result = collection.replaceOne(eq("id", id), document);
             return result.getModifiedCount() > 0;
         } catch (Exception e) {
             System.out.println("Error Update : " + e);
@@ -96,10 +96,10 @@ public class DBConnector {
         }
     }
 
-    public boolean deleteFromDB(String id, String coll) {
+    public boolean deleteFromDB(int id, String coll) {
         collection = database.getCollection(coll);
         try {
-            DeleteResult result = collection.deleteOne(eq("_id", new ObjectId(id)));
+            DeleteResult result = collection.deleteOne(eq("id", id));
             return result.getDeletedCount() > 0;
         } catch (Exception e) {
             System.out.println("Error Delete : " + e);
