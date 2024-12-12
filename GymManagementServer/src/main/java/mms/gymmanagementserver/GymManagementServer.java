@@ -1,9 +1,11 @@
-
-
 package mms.gymmanagementserver;
 
-import java.util.ArrayList;
-import rmi.DBConnector;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import users.Member;
 
 /**
  *
@@ -12,19 +14,70 @@ import rmi.DBConnector;
 public class GymManagementServer {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        DBConnector DBCreation = new DBConnector();
-        
+        System.out.println("Server Is Sayig Hello! <3 :)");
+        DBConnector DBCreation = DBConnector.connectDB();
         DBCreation.runOnce();
+
+        // ------------------------- STRAT RMI -------------------------
+        //        try {
+        //            GymSystemFacade facade = new GymSystemFacade();
+        //            Registry registry = LocateRegistry.createRegistry(1099);
+        //            if (LocateRegistry.getRegistry(1099) != null) {
+        //                registry = LocateRegistry.getRegistry(1099);
+        //            } else {
+        //                registry = LocateRegistry.createRegistry(1099);
+        //            }
+        //            registry.rebind("GymSystemFacade", facade);
+        //            System.out.println("The Registery is Ready");
+        //        } catch (RemoteException ex) {
+        //            System.out.println(ex);
+        //        }
+        //---------------------------------------------------------------------------------------------------------------------------------
+        Member m = new Member(1, "Mohammed", 10228810, "2091919", "mohammed@email.com", "123456", null, null, true);
+
+//        try {
+//            Member.createAccount(m);
+//        } catch (RemoteException ex) {
+//            Logger.getLogger(GymManagementServer.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
-        Person p = new Person(10, "beko", 1003794005, "20/10/2003", "beko@beko.com");
-//        DBCreation.inserIntoDB(p, "Person");
-//        DBCreation.deleteFromDB("6759c169d7a94f44d2b028dd", "Person");
-//        p.setName("Wlaa3 y beko");
-//        DBCreation.updateInDB("6759c24c12118c125aaa5d85", p, "Person");
-           ArrayList<Object> objs = DBCreation.readAllFromDB("Person",Person.class );
-            for (Object obj : objs) {
-            System.out.println(obj.toString());
-        }
+//        
+//        m.setPassword("walaw3malohaelregala");
+//        
+//        Member.updateAccount(m);
+        
+        
+//        Member.deleteAccount(m);
+
+//--------------------------------------------- TEST DB ----------------------------------------------------------------------------
+//Create account
+//        IUserAuth p = new Person(1, "Mohammed", 1003794005, "24/5/2003", "beko@beko.com", "123456","Manager");
+//        try {
+//            p.createAccount();
+//        } catch (RemoteException ex) {
+//            Logger.getLogger(GymManagementServer.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//Login
+//        IUserAuth p = new Person();
+//        try {
+//            Person p2 = p.login("beko@beko.com", "123456");
+//            System.out.println(p2);
+//        } catch (RemoteException ex) {
+//            Logger.getLogger(GymManagementServer.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//Select One Object form database
+//        Person p = DBCreation.readFromDB(10, "Person", Person.class);
+//        System.out.println(p);
+//Select all from collection
+//        ArrayList<Person> ps = DBCreation.readAllFromDB("Person", Person.class);
+//        for (Person p1 : ps ){
+//            System.out.println(p1);
+//        }
+//Update
+//        Person pUpdate = new Person(10, "bakoor", 120, "1/1/2025", "3ameldonia@walahe.com", "123456789", "#am ELnas");
+//        DBCreation.updateInDB(10, pUpdate, "Person");
+//Delete
+//        DBCreation.deleteFromDB(10, "Person");
     }
+
 }
