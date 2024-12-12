@@ -5,13 +5,13 @@ package users;
  *
  * @author Mohammed Abou Bakr
  */
-public class GeneralManager extends Person {
+public class GeneralManager extends Gymmanager {
     
     private String perforamceTarget;
     private static GeneralManager generalManager;
     
     private GeneralManager(int id, String name, int phoneNumber, String DOB, String email , String password , String perforamceTarget) {
-        super(id, name, phoneNumber, DOB, email ,password, "General_Manager");
+        super(id, name, phoneNumber, DOB, email ,password, "General_Manager" , null);
         this.perforamceTarget = perforamceTarget;
     }
     

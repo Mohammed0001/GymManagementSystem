@@ -8,7 +8,7 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mms.GUI.GymLOGIN;
-import mms.GUI.ManagerGUI;
+import mms.GUI.GeneralManagerGUI;
 import rmipack.IUserAuth;
 import users.Person;
 
@@ -41,8 +41,8 @@ public class loginController {
                 new GymLOGIN().setVisible(true);
             } else {
                 System.out.println("loged in succ!!!");
-                if ("Manager".equals(p.getRole())) {
-                    new ManagerGUI(p).setVisible(true);
+                if ("General_Manager".equals(p.getRole())) {
+                    new GeneralManagerGUI(p).setVisible(true);
                 }
             }
         } catch (RemoteException ex) {

@@ -18,8 +18,8 @@ public class Gymmanager extends Person {
     
     private Branch branch;
 
-    public Gymmanager(int id, String name, int phoneNumber, String DOB, String email,String password, Branch branch) {
-        super(id, name, phoneNumber, DOB, email, password , "Manager"); 
+    public Gymmanager(int id, String name, int phoneNumber, String DOB, String email,String password,String role , Branch branch) {
+        super(id, name, phoneNumber, DOB, email, password , role); 
         this.branch = branch;
     }
     // Getter for branch
