@@ -1,6 +1,5 @@
-package users;
 
-import <any?>;
+package users;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,10 +24,6 @@ public class Accountant extends Person{
     
     public void setAccessLevel(String accessLevel) {
         this.accessLevel = accessLevel;
-    }
-    
-    public boolean createAccount(Accountant accountant){
-        
     }
 
     @Override
