@@ -142,6 +142,7 @@ public class DBConnector {
                 createCollection("Inventory");
                 createCollection("Complaint");
                 createCollection("Subscription");
+                createCollection("TrainingClass");
                 System.out.println("Database created successfully: " + dbName);
             } else {
                 System.out.println("Database already exists: " + dbName);

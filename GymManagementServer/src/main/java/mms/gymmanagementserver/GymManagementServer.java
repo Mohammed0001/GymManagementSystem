@@ -19,19 +19,26 @@ public class GymManagementServer {
         DBCreation.runOnce();
 
         // ------------------------- STRAT RMI -------------------------
-        //        try {
-        //            GymSystemFacade facade = new GymSystemFacade();
-        //            Registry registry = LocateRegistry.createRegistry(1099);
-        //            if (LocateRegistry.getRegistry(1099) != null) {
-        //                registry = LocateRegistry.getRegistry(1099);
-        //            } else {
-        //                registry = LocateRegistry.createRegistry(1099);
-        //            }
-        //            registry.rebind("GymSystemFacade", facade);
-        //            System.out.println("The Registery is Ready");
-        //        } catch (RemoteException ex) {
-        //            System.out.println(ex);
-        //        }
+        try {
+
+            Registry registry = LocateRegistry.createRegistry(1099);
+            if (LocateRegistry.getRegistry(1099) != null) {
+                registry = LocateRegistry.getRegistry(1099);
+            } else {
+                registry = LocateRegistry.createRegistry(1099);
+            }
+
+            MohammedFacade Mohfacade = new MohammedFacade();
+            registry.rebind("MohammedFacade", Mohfacade);
+
+//            KarimFacade KarimFacade = new KarimFacade();
+//            registry.rebind("KarimFacade", KarimFacade);
+
+
+            System.out.println("The Registery is Ready");
+        } catch (RemoteException ex) {
+            System.out.println(ex);
+        }
         //---------------------------------------------------------------------------------------------------------------------------------
         Member m = new Member(1, "Mohammed", 10228810, "2091919", "mohammed@email.com", "123456", null, null, true);
 
@@ -40,15 +47,11 @@ public class GymManagementServer {
 //        } catch (RemoteException ex) {
 //            Logger.getLogger(GymManagementServer.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
 //        
 //        m.setPassword("walaw3malohaelregala");
 //        
 //        Member.updateAccount(m);
-        
-        
 //        Member.deleteAccount(m);
-
 //--------------------------------------------- TEST DB ----------------------------------------------------------------------------
 //Create account
 //        IUserAuth p = new Person(1, "Mohammed", 1003794005, "24/5/2003", "beko@beko.com", "123456","Manager");

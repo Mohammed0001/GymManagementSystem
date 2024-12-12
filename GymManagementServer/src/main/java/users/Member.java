@@ -19,8 +19,8 @@ public class Member extends Person implements Serializable  {
     private Subscription subscription;
     @Expose
     private boolean status;
-    private static DBConnector DB = DBConnector.connectDB();
-    private static final long serialVersionUID = 2L;
+    private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
+    private static final long serialVersionUID = 2L;// Mohammed Abou Bakr
 
     // Constructor
     public Member(int id, String name, int phoneNumber, String DOB, String email, String password, IMemberProgressROI progress, Subscription subscription, boolean status) {
@@ -63,7 +63,7 @@ public class Member extends Person implements Serializable  {
     }
 
     // Getters
-    public IMemberProgressROI getProgress() {
+    public IMemberProgressROI getProgress() {// Mohammed Abou Bakr
         return progress;
     }
 
@@ -76,7 +76,7 @@ public class Member extends Person implements Serializable  {
     }
 
     // Setters
-    public void setProgress(IMemberProgressROI progress) {
+    public void setProgress(IMemberProgressROI progress) { // Mohammed Abou Bakr
         this.progress = progress;
     }
 
@@ -93,12 +93,12 @@ public class Member extends Person implements Serializable  {
         // Logic for updating based on feedback details
         System.out.println("Updating with feedback: " + feedbackDetails);
     }
-
-    public static boolean updateAccount(Member m) {
+    
+    public static boolean updateAccount(Member m) {// Mohammed Abou Bakr
         return DB.updateInDB(m.getId(), m, "Person");
     }
 
-    public static boolean deleteAccount(Member m) {
+    public static boolean deleteAccount(Member m) {// Mohammed Abou Bakr
         return DB.deleteFromDB(m.getId(), "Person");
     }
 }

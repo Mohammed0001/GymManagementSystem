@@ -16,7 +16,7 @@ public class Trainer extends Person {
     private double rating;
 
     public Trainer(int id, String name, int phoneNumber, String DOB, String email, String password, int branchID, String specialty, String availability, double rating) {
-        super(id, name, phoneNumber, DOB, email, password);
+        super(id, name, phoneNumber, DOB, email, password ,"Trainer");
         this.branchID = branchID;
         this.specialty = specialty;
         this.availability = availability;

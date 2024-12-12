@@ -13,9 +13,9 @@ import users.Person;
  *
  * @author Mohammed ABou Bakr
  */
-public class GymSystemFacade extends UnicastRemoteObject implements IUserAuth {
+public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
 
-    public GymSystemFacade() throws RemoteException {
+    public MohammedFacade() throws RemoteException {
 
     }
 

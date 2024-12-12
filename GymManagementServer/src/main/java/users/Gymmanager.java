@@ -19,7 +19,7 @@ public class Gymmanager extends Person {
     private Branch branch;
 
     public Gymmanager(int id, String name, int phoneNumber, String DOB, String email,String password, Branch branch) {
-        super(id, name, phoneNumber, DOB, email, password); 
+        super(id, name, phoneNumber, DOB, email, password , "Manager"); 
         this.branch = branch;
     }
     // Getter for branch

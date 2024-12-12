@@ -1,4 +1,3 @@
-
 package services;
 
 import users.Gymmanager;
@@ -8,13 +7,12 @@ import users.Member;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author Karim 219226
  */
 public class Complaint {
-    
+
     private int id;
     private String name;
     private Member complainer;
@@ -118,41 +116,42 @@ public class Complaint {
     public void setCompliantState(ComplaintState compliantState) {
         this.compliantState = compliantState;
     }
-    
-    public void submitComplaint(){
+
+    public void submitComplaint() {
         this.status = "Submitted";
         this.dateSubmitted = java.time.LocalDate.now().toString();
         this.compliantState.viewComplaint();
     }
-    
-    public void addressComplaint(){
+
+    public void addressComplaint() {
         this.status = "In Review";
         this.compliantState = new InReviewState(this);
     }
-    
-    public String getComplaint(){
-        return "Complaint ID: " + id + ",Name: " + name + ", Status" + status;  
+
+    public String getComplaint() {
+        return "Complaint ID: " + id + ",Name: " + name + ", Status" + status;
     }
-    
-    public void markResolved(String s){
+
+    public void markResolved(String s) {
         this.status = "Resolved";
         this.compliantState.resolved();
     }
-    
-    public String addFeedback(){
-        
+
+    public String addFeedback() {
+        return "";
     }
-    
-    public void viewComplaint(){
-        
+
+    public void viewComplaint() {
+
     }
-    
-    public void resolve(){
-        
+
+    public void resolve() {
+
     }
 
     @Override
     public String toString() {
         return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", feedback=" + feedback + ", managedBy=" + managedBy + ", compliantState=" + compliantState + '}';
-    }   
+    }
+
 }
