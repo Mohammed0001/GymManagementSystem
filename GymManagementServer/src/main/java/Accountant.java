@@ -23,8 +23,7 @@ public class Accountant extends Person{
         this.accessLevel = accessLevel;
     }
     
-    public boolean createAccount(Accountant accountant){
-        String newAccountant = "Insert into 'Person' (name, phoneNumber, DOB, email) VALUES ('"+this.getName()"' ,'"+this.getPhoneNumber()"' , '"+this.getDOB()"', '"+this.getEmail()"', 'Accountant')";
-        return DBConnector.inserIntoDB(newAccountant, "Accountant");
+    public boolean createAccount(Accountant accountant){        
+        return DBConnector.inserIntoDB(accountant, "Person");
     }
 }

@@ -33,13 +33,13 @@ public class DBConnector {
     public DBConnector() {
         Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
         mongoLogger.setLevel(Level.SEVERE);
-
+    
         // Initialize
         client = new MongoClient();
         database = client.getDatabase("GymManagement"); // Database name
         collection = database.getCollection("Depertmant"); // Collection name
     }
-
+    
     public boolean inserIntoDB(Object obj, String coll) {
         String json = gson.toJson(obj);
         collection = database.getCollection(coll);
@@ -52,7 +52,7 @@ public class DBConnector {
         }
         return true;
     }
-
+    
     public ArrayList<Object> readAllFromDB(String coll, Class<?> cls) {
         ArrayList<Object> results = new ArrayList<>();
         collection = database.getCollection(coll);
@@ -67,7 +67,7 @@ public class DBConnector {
         }
         return results;
     }
-
+    
     public Object readFromDB(String id, String coll, Class<?> cls) {
         collection = database.getCollection(coll);
         Object result = null;
@@ -81,7 +81,7 @@ public class DBConnector {
         }
         return result;
     }
-
+    
     public boolean updateInDB(String id, Object obj, String coll) {
         String json = gson.toJson(obj);
         Document document = Document.parse(json);
@@ -94,7 +94,7 @@ public class DBConnector {
             return false;
         }
     }
-
+    
     public boolean deleteFromDB(String id, String coll) {
         collection = database.getCollection(coll);
         try {
@@ -105,7 +105,7 @@ public class DBConnector {
             return false;
         }
     }
-
+    
     public boolean runOnce() {
         String dbName = "GymManagement";
         try {
@@ -134,7 +134,7 @@ public class DBConnector {
         }
 
     }
-
+    
     public boolean createCollection(String collectionName) {
         try {
             database.createCollection(collectionName);
@@ -145,5 +145,4 @@ public class DBConnector {
             return false;
         }
     }
-
 }
