@@ -19,14 +19,14 @@ public class FeedbackClient implements Observer {
         System.out.println("Notification for " + name + ": " + feedbackDetails);
     }
     
-    public static void main(String[] args) {
-        try {
-            FeedbackNotifier feedbackNotifier = (FeedbackNotifier) Naming.lookup("rmi://localhost/FeedbackService");
-            FeedbackClient client = new FeedbackClient("Client1");
-            feedbackNotifier.registerObserver(client);
-            System.out.println("Client registered and waiting for updates...");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            FeedbackNotifier feedbackNotifier = (FeedbackNotifier) Naming.lookup("rmi://localhost/FeedbackService");
+//            FeedbackClient client = new FeedbackClient("Client1");
+//            feedbackNotifier.registerObserver(client);
+//            System.out.println("Client registered and waiting for updates...");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

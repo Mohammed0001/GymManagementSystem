@@ -1,10 +1,6 @@
 package users;
 
-import com.google.gson.annotations.Expose;
 import java.io.Serializable;
-import java.rmi.RemoteException;
-import mms.gymmanagementserver.DBConnector;
-import rmipack.IUserAuth;
 
 /**
  *
@@ -12,27 +8,20 @@ import rmipack.IUserAuth;
  */
 public class Person implements Serializable {
 
-    @Expose
     private int id;
-    @Expose
     private String name;
-    @Expose
     private int phoneNumber;
-    @Expose
     private String DOB;
-    @Expose
     private String email;
-    @Expose
     private String password;
-    @Expose
     private String role;
-
-    private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 1L;
 
     public Person() {
     }
 
+    ;
+    
     public Person(int id, String name, int phoneNumber, String DOB, String email, String password, String role) {
         this.id = id;
         this.name = name;
@@ -104,11 +93,4 @@ public class Person implements Serializable {
         return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + ", password=" + password + ", Role= " + role + ')';
     }
 
-    public static Person login(String email, String password) throws RemoteException {
-        return DB.login(email, password);
-    }
-
-    public static boolean createAccount(Person p) throws RemoteException {
-        return DB.inserIntoDB(p, "Person");
-    }
 }

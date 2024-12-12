@@ -1,29 +1,34 @@
 package users;
 
+import com.google.gson.annotations.Expose;
+import java.io.Serializable;
+import mms.gymmanagementserver.DBConnector;
 import services.Subscription;
-import mms.gymmanagementserver.Person;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import services.IMemberProgressROI;
 
 /**
  *
  * @author sarahhali
  */
-public class Member extends Person, Progress, Subscription {
+public class Member extends Person implements Serializable {
 
     // Attributes
-    private MemberProgressROI progress;
+    @Expose
+    private IMemberProgressROI progress;
+    @Expose
     private Subscription subscription;
+    @Expose
     private boolean status;
+    private static DBConnector DB = DBConnector.connectDB();
+    private static final long serialVersionUID = 2L;
 
     // Constructor
-    public Member(MemberProgressROI progress, Subscription subscription, boolean status) {
+    public Member(int id, String name, int phoneNumber, String DOB, String email, String password, IMemberProgressROI progress, Subscription subscription, boolean status) {
+        super(id, name, phoneNumber, DOB, email, password, "Member");
         this.progress = progress;
         this.subscription = subscription;
         this.status = status;
+
     }
 
     // Methods
@@ -58,7 +63,7 @@ public class Member extends Person, Progress, Subscription {
     }
 
     // Getters
-    public MemberProgressROI getProgress() {
+    public IMemberProgressROI getProgress() {
         return progress;
     }
 
@@ -71,7 +76,7 @@ public class Member extends Person, Progress, Subscription {
     }
 
     // Setters
-    public void setProgress(MemberProgressROI progress) {
+    public void setProgress(IMemberProgressROI progress) {
         this.progress = progress;
     }
 
@@ -88,5 +93,12 @@ public class Member extends Person, Progress, Subscription {
         // Logic for updating based on feedback details
         System.out.println("Updating with feedback: " + feedbackDetails);
     }
-}
 
+    public static boolean updateAccount(Member m) {
+        return DB.updateInDB(m.getId(), m, "Person");
+    }
+
+    public static boolean deleteAccount(Member m) {
+        return DB.deleteFromDB(m.getId(), "Person");
+    }
+}
