@@ -7,7 +7,7 @@ package users;
 
 /**
  *
- * @author karim 219226 and ahmed
+ * @author ahmed
  */
 public class Trainer extends Person {
     private int branchID;
