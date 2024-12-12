@@ -6,9 +6,6 @@ package users;
 
 import finance.Payment;
 import mms.gymmanagementserver.Branch;
-import mms.gymmanagementserver.MemberSesAssembler;
-import mms.gymmanagementserver.MemberSesAssemblerImpl;
-import mms.gymmanagementserver.MemberSessionDTO;
 import users.Member;
 
 /**
