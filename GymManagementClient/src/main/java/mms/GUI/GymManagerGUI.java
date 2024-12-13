@@ -1,20 +1,20 @@
+
 package mms.GUI;
 
 import users.Person;
 
 /**
  *
- * @author Mohammed ABou Bakr
+ * @author Kanzi
  */
 public class GymManagerGUI extends javax.swing.JFrame {
 
-    Manager m;
+    Person P;
 
-    public GymManagerGUI(Manager m) {
-        this.m = m;
+    public GymManagerGUI(Person P) {
+        this.P = P;
         initComponents();
-        this.greatingLabel.setText("Welcome! " + m.getName());
-
+        this.greatingLabel.setText("Welcome! " + P.getName());
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +54,7 @@ public class GymManagerGUI extends javax.swing.JFrame {
             }
         });
 
-        viewBranchesReportBTN.setText("View Report");
+        viewBranchesReportBTN.setText("View Branchs Report");
         viewBranchesReportBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBranchesReportBTNActionPerformed(evt);
@@ -79,26 +79,27 @@ public class GymManagerGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(manageClassesBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(viewBranchesReportBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(17, Short.MAX_VALUE)
+                                .addComponent(managAccBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(manageClassesBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addressComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(viewBranchesReportBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(managAccBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(207, Short.MAX_VALUE)))
+                            .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +107,9 @@ public class GymManagerGUI extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(managAccBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(manageClassesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,11 +117,6 @@ public class GymManagerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewBranchesReportBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(61, 61, 61)
-                    .addComponent(managAccBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(173, Short.MAX_VALUE)))
         );
 
         pack();
@@ -126,24 +124,24 @@ public class GymManagerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void managAccBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managAccBTNActionPerformed
-        new manageAccountsGUI(m).setVisible(true);
+        new manageAccountsGUI(P).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_managAccBTNActionPerformed
 
     private void manageClassesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassesBTNActionPerformed
         // TODO add your handling code here:
-        new manageClassesGUI(m).setVisible(true);
+        new manageClassesGUI(P).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_manageClassesBTNActionPerformed
 
     private void manageEquipmentBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEquipmentBTNActionPerformed
-        new manageEquipmentsGUI(m).setVisible(true);
+        new manageEquipmentsGUI(P).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_manageEquipmentBTNActionPerformed
 
     private void addressComplaintsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressComplaintsBTNActionPerformed
         // TODO add your handling code here:
-        new addressComplaintsGUI(m).setVisible(true);
+        new addressComplaintsGUI(P).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addressComplaintsBTNActionPerformed
 
@@ -152,10 +150,9 @@ public class GymManagerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_manageClassesBTN4ActionPerformed
 
     private void viewBranchesReportBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBranchesReportBTNActionPerformed
-        new viewBranchReport(m).setVisible(true);
+        new viewBranchesReportGUI(P).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewBranchesReportBTNActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addressComplaintsBTN;
