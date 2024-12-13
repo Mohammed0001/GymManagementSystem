@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package rmi;
+package services;
 import finance.Payment;
 /**
  *
@@ -10,6 +10,7 @@ import finance.Payment;
  */
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import rmipack.FacadeInterface;
 
 public class SubscriptionFacade extends UnicastRemoteObject implements FacadeInterface {
 

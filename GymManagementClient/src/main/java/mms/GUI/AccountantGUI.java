@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -79,6 +80,8 @@ public class AccountantGUI extends javax.swing.JFrame {
 
     private void GenerateReportBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateReportBTNActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new GenerateFinancialReportGUI(P).setVisible(true);
     }//GEN-LAST:event_GenerateReportBTNActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
