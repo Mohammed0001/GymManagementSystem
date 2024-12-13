@@ -5,12 +5,13 @@ import java.io.Serializable;
 import mms.gymmanagementserver.DBConnector;
 import services.Subscription;
 import services.IMemberProgressROI;
+import services.MemberObserver;
 
 /**
  *
  * @author sarahhali
  */
-public class Member extends Person implements Serializable  {
+public class Member extends Person implements Serializable,MemberObserver  {
 
     // Attributes
     @Expose
