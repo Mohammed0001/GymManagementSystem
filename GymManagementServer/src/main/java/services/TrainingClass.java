@@ -1,6 +1,7 @@
 package services;
 
 import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import mms.gymmanagementserver.DBConnector;
 
 /**
@@ -86,6 +87,14 @@ public class TrainingClass {
 
     public static boolean deleteTrainingClass(TrainingClass trainingClass) {
         return DB.deleteFromDB(trainingClass.getId(), "TrainingClass");
+    }
+
+    public static ArrayList<TrainingClass> getAllClasses() {
+        return DB.readAllFromDB("TrainingClass", TrainingClass.class);
+    }
+
+    public static TrainingClass gettrainingClass(int id) {
+        return DB.readFromDB(id, "TrainingClass", TrainingClass.class);
     }
 
 }
