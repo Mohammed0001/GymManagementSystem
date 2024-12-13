@@ -24,9 +24,9 @@ public class MemberGUI extends javax.swing.JFrame {
         manageClassesBTN4 = new javax.swing.JButton();
         greatingLabel = new javax.swing.JLabel();
         viewClassesBTN = new javax.swing.JButton();
-        manageClassesBTN = new javax.swing.JButton();
-        manageEquipmentBTN = new javax.swing.JButton();
-        addressComplaintsBTN = new javax.swing.JButton();
+        manageEnrolledSessionBTN = new javax.swing.JButton();
+        trackProgressBTN = new javax.swing.JButton();
+        submitComplaintsBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         manageClassesBTN4.setText("Address Complaints");
@@ -47,24 +47,24 @@ public class MemberGUI extends javax.swing.JFrame {
             }
         });
 
-        manageClassesBTN.setText("Manage Enrolled Session");
-        manageClassesBTN.addActionListener(new java.awt.event.ActionListener() {
+        manageEnrolledSessionBTN.setText("Manage Enrolled Session");
+        manageEnrolledSessionBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageClassesBTNActionPerformed(evt);
+                manageEnrolledSessionBTNActionPerformed(evt);
             }
         });
 
-        manageEquipmentBTN.setText("Track Progress");
-        manageEquipmentBTN.addActionListener(new java.awt.event.ActionListener() {
+        trackProgressBTN.setText("Track Progress");
+        trackProgressBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageEquipmentBTNActionPerformed(evt);
+                trackProgressBTNActionPerformed(evt);
             }
         });
 
-        addressComplaintsBTN.setText("Submit Complaint");
-        addressComplaintsBTN.addActionListener(new java.awt.event.ActionListener() {
+        submitComplaintsBTN.setText("Submit Complaint");
+        submitComplaintsBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressComplaintsBTNActionPerformed(evt);
+                submitComplaintsBTNActionPerformed(evt);
             }
         });
 
@@ -78,12 +78,12 @@ public class MemberGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageClassesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageEnrolledSessionBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(viewClassesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addressComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(trackProgressBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(182, 182, 182)))
@@ -102,12 +102,12 @@ public class MemberGUI extends javax.swing.JFrame {
                 .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manageEquipmentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(trackProgressBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewClassesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manageClassesBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageEnrolledSessionBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitComplaintsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
 
@@ -116,26 +116,26 @@ public class MemberGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewClassesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClassesBTNActionPerformed
-        new manageAccountsGUI(p).setVisible(true);
+        new availableClassesGUI(p).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewClassesBTNActionPerformed
 
-    private void manageClassesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassesBTNActionPerformed
+    private void manageEnrolledSessionBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEnrolledSessionBTNActionPerformed
         // TODO add your handling code here:
         new manageClassesGUI(p).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_manageClassesBTNActionPerformed
+    }//GEN-LAST:event_manageEnrolledSessionBTNActionPerformed
 
-    private void manageEquipmentBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEquipmentBTNActionPerformed
+    private void trackProgressBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackProgressBTNActionPerformed
         new manageEquipmentsGUI(p).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_manageEquipmentBTNActionPerformed
+    }//GEN-LAST:event_trackProgressBTNActionPerformed
 
-    private void addressComplaintsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressComplaintsBTNActionPerformed
+    private void submitComplaintsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitComplaintsBTNActionPerformed
         // TODO add your handling code here:
         new addressComplaintsGUI(p).setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_addressComplaintsBTNActionPerformed
+    }//GEN-LAST:event_submitComplaintsBTNActionPerformed
 
     private void manageClassesBTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassesBTN4ActionPerformed
         // TODO add your handling code here:
@@ -143,12 +143,12 @@ public class MemberGUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addressComplaintsBTN;
     private javax.swing.JLabel greatingLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton manageClassesBTN;
     private javax.swing.JButton manageClassesBTN4;
-    private javax.swing.JButton manageEquipmentBTN;
+    private javax.swing.JButton manageEnrolledSessionBTN;
+    private javax.swing.JButton submitComplaintsBTN;
+    private javax.swing.JButton trackProgressBTN;
     private javax.swing.JButton viewClassesBTN;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,13 +40,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageClassesBTN" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="manageEnrolledSessionBTN" min="-2" pref="170" max="-2" attributes="0"/>
                           <Component id="viewClassesBTN" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageEquipmentBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="addressComplaintsBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="trackProgressBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="submitComplaintsBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -72,13 +72,13 @@
               <Component id="greatingLabel" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="manageEquipmentBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="trackProgressBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="viewClassesBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="manageClassesBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="addressComplaintsBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="manageEnrolledSessionBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="submitComplaintsBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
@@ -99,28 +99,28 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewClassesBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="manageClassesBTN">
+    <Component class="javax.swing.JButton" name="manageEnrolledSessionBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Enrolled Session"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageClassesBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageEnrolledSessionBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="manageEquipmentBTN">
+    <Component class="javax.swing.JButton" name="trackProgressBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Track Progress"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageEquipmentBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trackProgressBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="addressComplaintsBTN">
+    <Component class="javax.swing.JButton" name="submitComplaintsBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit Complaint"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressComplaintsBTNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitComplaintsBTNActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
