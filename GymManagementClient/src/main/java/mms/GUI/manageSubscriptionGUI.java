@@ -14,6 +14,7 @@ import users.Person;
 public class manageSubscriptionGUI extends javax.swing.JFrame {
 
     Person P;
+    
     public manageSubscriptionGUI(Person P) {
         this.P = P;
         initComponents();
