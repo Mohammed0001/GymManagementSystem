@@ -12,6 +12,7 @@ import users.Person;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import mms.controllers.TrainingClassController;
 
 /**
  *
@@ -23,12 +24,24 @@ public class availableClassesGUI extends javax.swing.JFrame {
      * Creates new form availableClassesGUI
          */
     Person p;
+    private TrainingClassController trainingClassController;
+    
     public availableClassesGUI(Person p) {
         this.p = p;
+        this.trainingClassController = new TrainingClassController();
         initComponents();
         populateAvailableClassesTable();       
     }           
-
+private void populateAvailableClassesTable() {
+        // Get the table's model
+        DefaultTableModel model = (DefaultTableModel) availableClassesTable.getModel();
+        trainingClassController.populateAvailableClasses(model);
+    }
+private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        // Navigate to the home screen
+        this.setVisible(false);
+        new MemberGUI(p).setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,13 +52,13 @@ public class availableClassesGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        availableClassesTable = new javax.swing.JTable();
         homeBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        availableClassesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,7 +69,7 @@ public class availableClassesGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(availableClassesTable);
 
         homeBTN.setText("Home");
 
@@ -87,54 +100,7 @@ public class availableClassesGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- private void initComponents() {
-
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        homeBTN = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        // Set the table model
-        jTable1.setModel(new DefaultTableModel(
-            new Object[][]{}, // Empty data initially
-            new String[]{"ID", "Name", "Type", "Schedule", "Capacity"} // Column names
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        homeBTN.setText("Home");
-        homeBTN.addActionListener(evt -> homeBTNActionPerformed(evt)); // Home button action
-
-        jLabel1.setText("Available Classes");
-
-        // Layout setup
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(35, 35, 35)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(homeBTN)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(51, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(14, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(5, 5, 5)
-                    .addComponent(homeBTN))
-        );
-
-        pack();
-    }
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -171,9 +137,9 @@ public class availableClassesGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable availableClassesTable;
     private javax.swing.JButton homeBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
