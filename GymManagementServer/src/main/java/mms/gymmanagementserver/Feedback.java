@@ -1,3 +1,5 @@
+package mms.gymmanagementserver;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -11,12 +13,12 @@ import java.util.List;
  *
  * @author kanzihaitham
  */
-public class Feedback extends UnicastRemoteObject implements FeedbackNotifier{
+public class Feedback extends UnicastRemoteObject implements FeedbackNotifier {
     private int id;
     private String details;
     private String dateProvided;
     private double rating;
-    private List<Observer> observers;
+    private List<MemberObserver> observers= new ArrayList<>();
     
     public Feedback(int id, String details, String dateProvided, double rating) throws RemoteException {
         this.id = id;
@@ -34,25 +36,48 @@ public class Feedback extends UnicastRemoteObject implements FeedbackNotifier{
         this.details = details;
         notifyObservers(details); // Notify observers when feedback details are updated
     }
+    
+    public String getDateProvided() {
+        return dateProvided;
+    }
 
+    public void setDateProvided(String dateProvided) {
+        this.dateProvided = dateProvided;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public int getId() {
+        return id;
+    }
+ public void submitFeedback(String feedbackDetails) throws RemoteException {
+        this.details = feedbackDetails;
+        notifyObservers(feedbackDetails);
+    }
     // FeedbackNotifier Methods
-    @Override
-    public void registerObserver(Observer observer) throws RemoteException {
+@Override
+    public void registerObserver(MemberObserver observer) {
         observers.add(observer);
         System.out.println("Observer registered.");
     }
-
-    @Override
-    public void removeObserver(Observer observer) throws RemoteException {
+    
+  @Override
+    public void removeObserver(MemberObserver observer) {
         observers.remove(observer);
         System.out.println("Observer removed.");
     }
 
     @Override
-    public void notifyObservers(String feedbackDetails) throws RemoteException {
+    public void notifyObservers(String feedbackDetails) {
         System.out.println("Notifying observers...");
-        for (Observer observer : observers) {
-            observer.update(feedbackDetails); // Notify each observer
+        for (MemberObserver observer : observers) {
+            observer.update(feedbackDetails);
         }
     }
 }

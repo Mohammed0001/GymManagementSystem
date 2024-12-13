@@ -9,7 +9,7 @@ package mms.gymmanagementserver;
  *
  * @author sarahhali
  */
-public class Member extends Person, Progress, Subscription {
+public class Member extends Person, Progress, Subscription implements MemberObserver{
 
     // Attributes
     private MemberProgressROI progress;
@@ -21,6 +21,7 @@ public class Member extends Person, Progress, Subscription {
         this.progress = progress;
         this.subscription = subscription;
         this.status = status;
+        feedback.registerObserver(this);
     }
 
     // Methods
@@ -83,7 +84,7 @@ public class Member extends Person, Progress, Subscription {
     // Update method
     public void update(String feedbackDetails) {
         // Logic for updating based on feedback details
-        System.out.println("Updating with feedback: " + feedbackDetails);
+        System.out.println( "Updating with feedback: " + feedbackDetails);
     }
 }
 
