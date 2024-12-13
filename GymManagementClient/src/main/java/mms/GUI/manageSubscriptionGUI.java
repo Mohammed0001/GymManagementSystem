@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,7 +9,7 @@ import users.Person;
 
 /**
  *
- * @author dell
+ * @author Karim 219226
  */
 public class manageSubscriptionGUI extends javax.swing.JFrame {
 
@@ -124,7 +125,7 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
     private void HomeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBTNActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new AccountantGUI(P).setVisble(true);
+        new AccountantGUI(P).setVisible(true);
     }//GEN-LAST:event_HomeBTNActionPerformed
 
     private void RenewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RenewBTNActionPerformed
@@ -134,7 +135,6 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
     private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelBTNActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBTN;
