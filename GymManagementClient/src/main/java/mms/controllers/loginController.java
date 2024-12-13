@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import mms.GUI.GymLOGIN;
 import mms.GUI.GeneralManagerGUI;
+import mms.GUI.MemberGUI;
 import rmipack.IUserAuth;
 import users.Person;
 
@@ -43,6 +44,8 @@ public class loginController {
                 System.out.println("loged in succ!!!");
                 if ("General_Manager".equals(p.getRole())) {
                     new GeneralManagerGUI(p).setVisible(true);
+                } else {
+                    new MemberGUI(p).setVisible(true); // Redirect to Member GUI for other roles
                 }
             }
         } catch (RemoteException ex) {
