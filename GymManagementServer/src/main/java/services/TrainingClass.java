@@ -23,7 +23,6 @@ public class TrainingClass {
     @Expose
     private boolean isAvailable;
     
-   
 
     private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
     private static final long serialVersionUID = 3L;// Mohammed Abou Bakr

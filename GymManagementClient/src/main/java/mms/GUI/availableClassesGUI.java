@@ -6,6 +6,13 @@ package mms.GUI;
 
 import users.Person;
 
+import services.TrainingClass;
+import users.Person;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
 /**
  *
  * @author sarahhali
@@ -14,12 +21,13 @@ public class availableClassesGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form availableClassesGUI
-     */
-    
+         */
     Person p;
-    public availableClassesGUI(Person P) {
+    public availableClassesGUI(Person p) {
+        this.p = p;
         initComponents();
-    }
+        populateAvailableClassesTable();       
+    }           
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +87,53 @@ public class availableClassesGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        homeBTN = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        // Set the table model
+        jTable1.setModel(new DefaultTableModel(
+            new Object[][]{}, // Empty data initially
+            new String[]{"ID", "Name", "Type", "Schedule", "Capacity"} // Column names
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        homeBTN.setText("Home");
+        homeBTN.addActionListener(evt -> homeBTNActionPerformed(evt)); // Home button action
+
+        jLabel1.setText("Available Classes");
+
+        // Layout setup
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(homeBTN)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(51, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(14, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addComponent(homeBTN))
+        );
+
+        pack();
+    }
 
     /**
      * @param args the command line arguments
