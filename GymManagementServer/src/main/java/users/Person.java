@@ -3,6 +3,7 @@ package users;
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import mms.gymmanagementserver.DBConnector;
 import rmipack.IUserAuth;
 
@@ -111,4 +112,13 @@ public class Person implements Serializable {
     public static boolean createAccount(Person p) throws RemoteException {
         return DB.inserIntoDB(p, "Person");
     }
+
+    public static ArrayList<Person> getAllAccounts() {
+        return DB.readAllFromDB("Person", Person.class);
+    }
+
+    public static Person getAccount(int id) {
+        return DB.readFromDB(id,"Person", Person.class);
+    }
+
 }

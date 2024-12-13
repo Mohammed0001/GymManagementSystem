@@ -6,6 +6,7 @@ package mms.gymmanagementserver;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import rmipack.IUserAuth;
 import users.Person;
 
@@ -19,6 +20,12 @@ public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
 
     }
 
+    
+    
+    
+//----------------------------------------------------------------------------------
+//    PERSON CRUD OPERATIONS IN IUserAuth
+    
     @Override
     public Person login(String email, String password) throws RemoteException {
         return Person.login(email, password);
@@ -28,5 +35,17 @@ public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
     public boolean createAccount(Person p) throws RemoteException {
         return Person.createAccount(p);
     }
+
+    @Override
+    public ArrayList<Person> viewAllUsers() throws RemoteException {
+        return Person.getAllAccounts();
+    }
+
+    @Override
+    public Person getAccount(int id) throws RemoteException {
+        return Person.getAccount(id);
+    }
+    
+//----------------------------------------------------------------------------------
 
 }

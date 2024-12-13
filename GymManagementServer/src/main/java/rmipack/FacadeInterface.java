@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package rmi;
+package rmipack;
+import services.SubscriptionDTO;
 import finance.Payment;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
