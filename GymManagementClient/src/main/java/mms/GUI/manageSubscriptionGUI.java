@@ -134,7 +134,6 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
 
     private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
         // TODO add your handling code here:
-        new AccountantGUI(P)
     }//GEN-LAST:event_CancelBTNActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
