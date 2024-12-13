@@ -17,7 +17,7 @@ public class FeedbackServer {
      public static void main(String[] args) {
         try {
             // Create Feedback object
-            Feedback feedback = new Feedback(1, "Initial Feedback", "2024-12-08", 4.5);
+            Feedback1 feedback = new Feedback1(1, "Initial Feedback", "2024-12-08", 4.5);
 
             // Bind Feedback object to RMI registry
             Naming.rebind("rmi://localhost/FeedbackService", feedback);
