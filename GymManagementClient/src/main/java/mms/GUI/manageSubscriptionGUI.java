@@ -110,8 +110,8 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addComponent(Welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RenewBTN)
                     .addComponent(HomeBTN)
@@ -134,6 +134,7 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
 
     private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
         // TODO add your handling code here:
+        new AccountantGUI(P)
     }//GEN-LAST:event_CancelBTNActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
