@@ -25,6 +25,7 @@ public class Payment {
     private PaymentStrategy paymentStrategy;
  private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 9L;
+    
     public Payment(int id, int memberID, double amount, String paymentMethod, String currency, PaymentStrategy paymentStrategy) {
         this.id = id;
         this.memberID = memberID;
