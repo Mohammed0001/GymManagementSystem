@@ -31,7 +31,6 @@ public class Member extends Person implements Serializable,MemberObserver  {
         this.progress = progress;
         this.subscription = subscription;
         this.status = status;
-
     }
 
     // Methods

@@ -4,6 +4,9 @@
  */
 package mms.GUI;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import mms.controllers.UserController;
 import users.Person;
 
 /**
@@ -13,11 +16,18 @@ import users.Person;
 public class manageAccountsGUI extends javax.swing.JFrame {
 
     Person p;
+    UserController us = new UserController();
+    DefaultTableModel model;
+
     public manageAccountsGUI(Person p) {
         this.p = p;
         initComponents();
         this.greatingLabel.setText("Welcome! " + p.getName());
-                
+        model = us.getUsers();
+        accountsTable.setModel(model);
+        accountsTable.revalidate();
+        accountsTable.repaint();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +40,9 @@ public class manageAccountsGUI extends javax.swing.JFrame {
         homeBTN3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         accountsTable = new javax.swing.JTable();
+        homeBTN4 = new javax.swing.JButton();
+        homeBTN5 = new javax.swing.JButton();
+        homeBTN6 = new javax.swing.JButton();
 
         manageClassesBTN4.setText("Address Complaints");
         manageClassesBTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +71,31 @@ public class manageAccountsGUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Email", "Role"
             }
         ));
         jScrollPane1.setViewportView(accountsTable);
+
+        homeBTN4.setText("Create Account");
+        homeBTN4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTN4ActionPerformed(evt);
+            }
+        });
+
+        homeBTN5.setText("Delete Account");
+        homeBTN5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTN5ActionPerformed(evt);
+            }
+        });
+
+        homeBTN6.setText("Update Account");
+        homeBTN6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTN6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,17 +103,25 @@ public class manageAccountsGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(homeBTN3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(homeBTN4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(homeBTN5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(homeBTN6)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addComponent(greatingLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(homeBTN3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(greatingLabel1)
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +132,13 @@ public class manageAccountsGUI extends javax.swing.JFrame {
                     .addComponent(greatingLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homeBTN3)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(homeBTN3)
+                    .addComponent(homeBTN4)
+                    .addComponent(homeBTN5)
+                    .addComponent(homeBTN6))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +156,48 @@ public class manageAccountsGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_homeBTN3ActionPerformed
 
+    private void homeBTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTN4ActionPerformed
+        new createAccountGUI().setVisible(true);
+    }//GEN-LAST:event_homeBTN4ActionPerformed
+
+    private void homeBTN5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTN5ActionPerformed
+        int selectedRow = accountsTable.getSelectedRow();
+        if (selectedRow != -1) { // Check if a row is actually selected
+            int id = (int) model.getValueAt(selectedRow, 0); // Assuming ID is in the first column
+            boolean deleted = us.deleteAccount(id);
+            if (deleted) {
+                JOptionPane.showMessageDialog(null, "Deleted Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error Deleteing Account!");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No row selected!");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_homeBTN5ActionPerformed
+
+    private void homeBTN6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTN6ActionPerformed
+        int selectedRow = accountsTable.getSelectedRow();
+        if (selectedRow != -1) { // Check if a row is actually selected
+            int id = (int) model.getValueAt(selectedRow, 0); 
+            String name = (String) model.getValueAt(selectedRow, 1); 
+            String email = (String) model.getValueAt(selectedRow, 2); 
+            String role = (String) model.getValueAt(selectedRow, 3); 
+            String password = (String) model.getValueAt(selectedRow, 4); 
+            int phoneNumber = (int) model.getValueAt(selectedRow, 5);
+            String DOB = (String) model.getValueAt(selectedRow, 6); 
+            boolean updated = us.updateAccount(id, name, email, role, password, phoneNumber, DOB);
+            if (updated) {
+                JOptionPane.showMessageDialog(null, "Updated Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error Updated Account!");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No row selected!");
+        }
+    }//GEN-LAST:event_homeBTN6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -118,10 +206,10 @@ public class manageAccountsGUI extends javax.swing.JFrame {
     private javax.swing.JTable accountsTable;
     private javax.swing.JLabel greatingLabel;
     private javax.swing.JLabel greatingLabel1;
-    private javax.swing.JButton homeBTN;
-    private javax.swing.JButton homeBTN1;
-    private javax.swing.JButton homeBTN2;
     private javax.swing.JButton homeBTN3;
+    private javax.swing.JButton homeBTN4;
+    private javax.swing.JButton homeBTN5;
+    private javax.swing.JButton homeBTN6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageClassesBTN4;
     // End of variables declaration//GEN-END:variables

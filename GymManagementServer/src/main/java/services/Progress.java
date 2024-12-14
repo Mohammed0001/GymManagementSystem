@@ -40,6 +40,7 @@ public class Progress implements IMemberProgressROI, Serializable {
         this.id = id;
     }
 
+    @Override
     public double getWeight() {
         return weight;
     }
@@ -48,6 +49,7 @@ public class Progress implements IMemberProgressROI, Serializable {
         this.weight = weight;
     }
 
+    @Override
     public double getBodyFatPercentage() {
         return bodyFatPercentage;
     }
@@ -56,6 +58,7 @@ public class Progress implements IMemberProgressROI, Serializable {
         this.bodyFatPercentage = bodyFatPercentage;
     }
 
+    @Override
     public double getMuscleMass() {
         return muscleMass;
     }

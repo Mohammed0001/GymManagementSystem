@@ -1,6 +1,5 @@
 package rmipack;
 
-import users.Person;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
