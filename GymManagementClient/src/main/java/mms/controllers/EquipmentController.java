@@ -1,6 +1,5 @@
 package mms.controllers;
 
-import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -11,7 +10,6 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import rmipack.IEquipment;
 import services.Inventory;
-import users.Person;
 
 /**
  *
@@ -47,7 +45,7 @@ public class EquipmentController {
 
     public boolean deleteInventory(int id) {
         Inventory inv = new Inventory(id, null, null, null, null, null, null);
-             try {
+        try {
             return equipment.deleteInventory(inv);
         } catch (RemoteException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,7 +74,7 @@ public class EquipmentController {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
         for (Inventory inv : invs) {
-            table.addRow(new Object[]{inv.getId() , inv.getName() , inv.getProvider() , inv.getDescription()  , inv.getLastMaintenanceDate() , inv.getNextMaintenanceDate()  , inv.getWarrantyEndDate()});
+            table.addRow(new Object[]{inv.getId(), inv.getName(), inv.getProvider(), inv.getDescription(), inv.getLastMaintenanceDate(), inv.getNextMaintenanceDate(), inv.getWarrantyEndDate()});
             System.out.println(inv);
 //            Object[] row = new Object[4];
 //            row[0] = person.getId();

@@ -9,7 +9,7 @@ package finance;
  * @author hp
  */
 public interface PaymentStrategy {
-    String processPayment(double amount, String currency);
-    String validateTransaction();
-    String retryPayment(double amount, int retries);
+    public String processPayment(double amount, String currency);
+    public String validateTransaction();
+    public String retryPayment(double amount, int retries);
 }

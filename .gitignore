@@ -25,3 +25,4 @@ replay_pid*
 /GymManagementServer/target/
 /GymManagementClient/target/
 /GymManagementServer/nbproject/
+/GymManagementClient/nbproject/

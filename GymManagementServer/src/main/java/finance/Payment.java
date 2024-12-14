@@ -4,9 +4,8 @@
  */
 package finance;
 
-import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import rmi.PaymentStrategy;
+
 /**
  *
  * @author hp
@@ -16,8 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import mms.gymmanagementserver.DBConnector;
 
-public class Payment extends UnicastRemoteObject implements PaymentStrategy {
-    private int id; 
+public class Payment extends UnicastRemoteObject {
+
+    private int id;
     private int memberID;
     private double amount;
     private int transactionID;
@@ -26,10 +26,10 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy {
     private String currency;
     private String status;
     private PaymentStrategy paymentStrategy;
- private static DBConnector DB = DBConnector.connectDB();
+    private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 9L;
-    
-    public Payment(int id, int memberID, double amount, String paymentMethod, String currency, PaymentStrategy paymentStrategy) {
+
+    public Payment(int id, int memberID, double amount, String paymentMethod, String currency, PaymentStrategy paymentStrategy) throws RemoteException  {
         this.id = id;
         this.memberID = memberID;
         this.amount = amount;
@@ -112,18 +112,18 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy {
         Payment.DB = DB;
     }
 
-    
     public boolean makePayment() {
-        if (paymentStrategy.processPayment(amount, currency)) {
-            status = "Completed";
+        String stat = paymentStrategy.processPayment(amount, currency);
+        if (stat.equals("Completed")) {
+            
+//            status = ;
             System.out.println("Payment successful for transaction ID: " + transactionID);
             return true;
         } else {
             status = "Failed";
             System.out.println("Payment failed for transaction ID: " + transactionID);
-            return false;
-        } else {
-            status = "Completed";
+//            return false;
+//            status = "Completed";
             System.out.println("Payment successful for transaction ID: " + transactionID);
             return true;
         }
@@ -146,21 +146,18 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy {
     }
 
     // Implementation of processPayment from PaymentStrategy
-    @Override
     public String processPayment(double amount, String currency) throws RemoteException {
         // Default implementation (can be overridden by specific strategies)
         return "Payment processed successfully for " + amount + " " + currency;
     }
 
     // Implementation of validateTransaction from PaymentStrategy
-    @Override
     public String validateTransaction() throws RemoteException {
         // Default implementation (can be overridden by specific strategies)
         return "Transaction validated successfully.";
     }
 
     // Implementation of retryPayment from PaymentStrategy
-    @Override
     public String retryPayment(double amount, int retries) throws RemoteException {
         if (retries > 0) {
             return "Payment retry successful with " + retries + " attempts remaining.";
@@ -168,8 +165,7 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy {
             return "Payment retry failed: No retries remaining.";
         }
     }
-}
-    
+
     public static boolean createPayment(Payment pt) throws RemoteException {
         return DB.inserIntoDB(pt, "Payment");
     }

@@ -7,6 +7,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mms.GUI.AccountantGUI;
 import mms.GUI.GymLOGIN;
 import mms.GUI.GeneralManagerGUI;
 import mms.GUI.memberGUI;
@@ -44,6 +45,8 @@ public class loginController {
                 System.out.println("loged in succ!!!");
                 if ("General_Manager".equals(p.getRole())) {
                     new GeneralManagerGUI(p).setVisible(true);
+                } else if ("Accountant".equals(p.getRole())) {
+                    new AccountantGUI(p).setVisible(true);
                 } else {
                     new memberGUI(p).setVisible(true); // Redirect to Member GUI for other roles
                 }
