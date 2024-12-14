@@ -14,6 +14,7 @@ import javafx.scene.chart.PieChart;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import rmipack.IMemberService;
+import services.Complaint;
 import services.Progress;
 import services.TrainingClass;
 
@@ -83,4 +84,15 @@ public DefaultTableModel getAvailableClassesTableModel() {
     }
     return pieChart;
 }
+    public boolean submitComplaint(int id, String name, String comp, String dateSubmitted) {
+    try {
+        // Create a minimal complaint object
+        Complaint complaint = new Complaint(id, name, comp, dateSubmitted);
+        return sarahFacade.submitComplaint(complaint);
+    } catch (RemoteException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+    
 }
