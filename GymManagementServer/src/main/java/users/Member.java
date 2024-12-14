@@ -2,6 +2,8 @@ package users;
 
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import mms.gymmanagementserver.DBConnector;
 import services.Subscription;
 import services.IMemberProgressROI;
@@ -102,4 +104,23 @@ public class Member extends Person implements Serializable,MemberObserver  {
     public static boolean deleteAccount(Member m) {// Mohammed Abou Bakr
         return DB.deleteFromDB(m.getId(), "Person");
     }
+    
+      public static boolean createAccount(Member m) throws RemoteException {
+        return DB.inserIntoDB(m, "Member");
+   }
+
+   public static ArrayList<Member> getAllMember () {
+      return DB.readAllFromDB("Member ", Member.class);
+   }
+
+    public static Person getMember(int id) {
+        return DB.readFromDB(id, "Member ", Member.class);
+   }
+    public static boolean updateMember(Member  m) throws RemoteException {
+        return DB.updateInDB(m.getId(), m, "Member ");
+   }
+
+  public static boolean deleteMember(Member m) throws RemoteException {
+       return DB.deleteFromDB(m.getId(), "Member ");
+   }
 }

@@ -2,6 +2,8 @@ package services;
 
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import javax.swing.text.Document;
 import mms.gymmanagementserver.DBConnector;
 
@@ -76,5 +78,24 @@ public class Progress implements IMemberProgressROI, Serializable {
 
         Progress result = DB.readFromDB(id, "Progress", Progress.class);
         return result;
+    }
+    public static boolean createProgress(Progress pg) throws RemoteException {
+        return DB.inserIntoDB(pg, "Subscription");
+    }
+
+    public static ArrayList<Progress> getAllProgress() {
+        return DB.readAllFromDB("Progress", Progress.class);
+    }
+
+    public static boolean getProgress(int id) {
+        return DB.readFromDB(id, "Progress", Progress.class);
+    }
+
+    public static boolean updateProgress(Progress pg) throws RemoteException {
+        return DB.updateInDB(pg.getId(), pg, "Progress");
+    }
+
+    public static boolean deleteProgress(Progress pg) throws RemoteException {
+        return DB.deleteFromDB(pg.getId(), "Progress");
     }
 }
