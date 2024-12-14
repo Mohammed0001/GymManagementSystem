@@ -22,6 +22,38 @@ public class Trainer extends Person {
         this.availability = availability;
         this.rating = rating;
     }
+
+    public int getBranchID() {
+        return branchID;
+    }
+
+    public void setBranchID(int branchID) {
+        this.branchID = branchID;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
     
     
 

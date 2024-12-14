@@ -9,19 +9,22 @@ package mms.gymmanagementserver;
  * @author hp
  */
 import java.util.ArrayList;
+import users.Trainer;
+
 
 public class Branch {
     private int id;
     private String name;
     private String location;
     private ArrayList<Inventory> inventory;
-
+ private ArrayList<Trainer> trainers;
     // Constructor
     public Branch(int id, String name, String location) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.inventory = new ArrayList<>();
+         this.trainers = new ArrayList<>();
     }
 
     // Getters and Setters
@@ -55,6 +58,14 @@ public class Branch {
 
     public void setInventory(ArrayList<Inventory> inventory) {
         this.inventory = inventory;
+    }
+
+    public ArrayList<Trainer> getTrainers() {
+        return trainers;
+    }
+
+    public void setTrainers(ArrayList<Trainer> trainers) {
+        this.trainers = trainers;
     }
 
     // Methods
@@ -104,5 +115,16 @@ public class Branch {
 
     public String generateBranchReport() {
         return viewGymBranchReport(id);
+    }
+    
+    // Methods to manage trainers
+    public void addTrainer(Trainer trainer) {
+        trainers.add(trainer);
+        System.out.println("Trainer added: " + trainer.getName());
+    }
+
+    public void removeTrainer(Trainer trainer) {
+        trainers.remove(trainer);
+        System.out.println("Trainer removed: " + trainer.getName());
     }
 }
