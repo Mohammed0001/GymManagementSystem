@@ -1,16 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mms.gymmanagementserver;
+package services;
 
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
+import java.util.ArrayList;
+import mms.gymmanagementserver.DBConnector;
 
 /**
  *
- * @author hp
+ * @author Mohammed Abou Bakr
  */
-public class Inventory {
+public class Inventory implements Serializable {
 
     @Expose
     private int id;
@@ -28,7 +27,7 @@ public class Inventory {
     private String warrantyEndDate;
 
     private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
-    private static final long serialVersionUID = 3L;// Mohammed Abou Bakr
+    private static final long serialVersionUID = 5L;// Mohammed Abou Bakr
 
     // Constructor
     public Inventory(int id, String name, String provider, String description,
@@ -111,15 +110,23 @@ public class Inventory {
     }
 
     public static boolean createTrainingClass(Inventory inv) {
-        return DB.inserIntoDB(inv, "TrainingClass");
+        return DB.inserIntoDB(inv, "Inventory");
     }
 
-    public static boolean updateTrainingClass(Inventory inv) {
-        return DB.updateInDB(inv.getId(), inv, "TrainingClass");
+    public static boolean updateInventory(Inventory inv) {
+        return DB.updateInDB(inv.getId(), inv, "Inventory");
     }
 
-    public static boolean deleteTrainingClass(Inventory inv) {
-        return DB.deleteFromDB(inv.getId(), "TrainingClass");
+    public static boolean deleteInventory(Inventory inv) {
+        return DB.deleteFromDB(inv.getId(), "Inventory");
+    }
+
+    public static ArrayList<Inventory> getAllAccounts() {
+        return DB.readAllFromDB("Inventory", Inventory.class);
+    }
+
+    public static Inventory getAccount(int id) {
+        return DB.readFromDB(id, "Inventory", Inventory.class);
     }
 
 }
