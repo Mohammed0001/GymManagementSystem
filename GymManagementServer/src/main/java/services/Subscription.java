@@ -6,6 +6,7 @@ package services;
 
 import com.mongodb.DB;
 import finance.Payment;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import mms.gymmanagementserver.DBConnector;
@@ -14,17 +15,27 @@ import mms.gymmanagementserver.DBConnector;
  *
  * @author sarahhali
  */
-public class Subscription {
+public class Subscription implements Serializable{
     // Attributes
+    @Expose
     private int id;
+    @Expose
     private String name;
+    @Expose
     private String type;
+    @Expose
     private double price;
+    @Expose
     private String description;
+    @Expose
     private boolean isRenewable;
+    @Expose
     private Payment payment; // Assuming Payment is another class
+    @Expose
     private double discount;
+    @Expose
     private String startDate;
+    @Expose
     private String endDate;
         private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 9L;
