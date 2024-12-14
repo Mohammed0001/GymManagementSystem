@@ -17,6 +17,7 @@ import mms.gymmanagementserver.DBConnector;
 public class Subscription {
     // Attributes
     private int id;
+    private String name;
     private String type;
     private double price;
     private String description;
@@ -30,9 +31,10 @@ public class Subscription {
 
 
     // Constructor
-    public Subscription(int id, String type, double price, String description, boolean isRenewable,
+    public Subscription(int id,String name, String type, double price, String description, boolean isRenewable,
                         Payment payment, double discount, String startDate, String endDate) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.price = price;
         this.description = description;
@@ -115,6 +117,16 @@ public class Subscription {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
     // Methods
     public void activateSubscription() {
