@@ -12,7 +12,7 @@ import users.Person;
  * @author Karim 219226
  */
 public class manageSubscriptionGUI extends javax.swing.JFrame {
-
+    
     Person P;
     
     public manageSubscriptionGUI(Person P) {
@@ -21,6 +21,7 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
         this.Welcome.setText("Welcome!" + P.getName());
     }
     
+    public 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -59,15 +60,23 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
 
         SubscriptonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "Name", "End date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(SubscriptonTable);
 
         Title.setText("Manage Subscription");
@@ -82,13 +91,15 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Welcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(RenewBTN)
                                 .addGap(62, 62, 62)
                                 .addComponent(HomeBTN)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                                .addComponent(CancelBTN)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CancelBTN))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -131,6 +142,7 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
 
     private void RenewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RenewBTNActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_RenewBTNActionPerformed
 
     private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
