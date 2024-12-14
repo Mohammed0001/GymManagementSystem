@@ -4,8 +4,6 @@
  */
 package finance;
 
-import rmi.PaymentStrategy;
-
 /**
  *
  * @author hp

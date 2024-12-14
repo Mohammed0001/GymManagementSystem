@@ -19,7 +19,7 @@ public class KarimFacade extends UnicastRemoteObject implements IAccountantServi
      private static final DBConnector DB = DBConnector.connectDB();
 
    public KarimFacade() throws RemoteException {
-        super();
+//        super();
     } 
    @Override
     public ArrayList<SubscriptionDTO> getAllSubscriptions() throws RemoteException {

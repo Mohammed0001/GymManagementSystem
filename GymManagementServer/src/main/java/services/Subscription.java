@@ -4,6 +4,7 @@
  */
 package services;
 
+import com.google.gson.annotations.Expose;
 import com.mongodb.DB;
 import finance.Payment;
 import java.io.Serializable;

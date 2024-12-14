@@ -1,6 +1,7 @@
 package services;
 
 
+import com.google.gson.annotations.Expose;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.io.Serializable;
@@ -8,10 +9,7 @@ import mms.gymmanagementserver.DBConnector;
 import users.Gymmanager;
 import users.Member;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 /**
  *
  * @author Karim 219226

@@ -18,7 +18,7 @@ public class SubscriptionFacade extends UnicastRemoteObject implements FacadeInt
 
     // Constructor
     public SubscriptionFacade() throws RemoteException {
-        subscription = new Subscription(0, "", 0.0, "", false, null, 0.0, "", "");
+        subscription = new Subscription(0, "", "", 0, "", true, null, 0, "", "");
     }
 
     // Method to set subscription data
