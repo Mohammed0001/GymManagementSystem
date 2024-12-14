@@ -5,7 +5,7 @@
 package users;
 
 import finance.Payment;
-import mms.gymmanagementserver.Branch;
+import services.Branch;
 import users.Member;
 
 /**

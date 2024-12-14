@@ -3,7 +3,7 @@ package users;
 
 
 import java.util.List;
-import mms.gymmanagementserver.Branch;
+import services.Branch;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
