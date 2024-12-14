@@ -1,4 +1,3 @@
-
 package mms.gymmanagementserver;
 
 import com.google.gson.Gson;
@@ -14,9 +13,8 @@ import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.text.Document;
 import org.bson.Document;
-import services.Progress;
+
 import users.Person;
 
 /**
@@ -127,8 +125,6 @@ public class DBConnector {
         }
         return result;
     }
-    
-
 
     public boolean runOnce() {
         String dbName = "GymManagement";
