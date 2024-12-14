@@ -7,14 +7,16 @@ package mms.gymmanagementserver;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import rmipack.IEquipment;
 import rmipack.IUserAuth;
+import services.Inventory;
 import users.Person;
 
 /**
  *
  * @author Mohammed ABou Bakr
  */
-public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
+public class MohammedFacade extends UnicastRemoteObject implements IUserAuth , IEquipment{
 
     public MohammedFacade() throws RemoteException {
 
@@ -55,5 +57,31 @@ public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
     
     
 //----------------------------------------------------------------------------------
+//    Inventory CRUD OPERATIONS IN IUserAuth
+
+    @Override
+    public ArrayList<Inventory> viewAllInventory() throws RemoteException {
+        return Inventory.getAllInv();
+    }
+
+    @Override
+    public Inventory getInventory(int id) throws RemoteException {
+        return Inventory.getInventory(id);
+    }
+
+    @Override
+    public boolean updateInventory(Inventory inv) throws RemoteException {
+        return Inventory.updateInventory(inv);
+    }
+
+    @Override
+    public boolean deleteInventory(Inventory inv) throws RemoteException {
+        return Inventory.deleteInventory(inv);
+    }
+
+    @Override
+    public boolean createInventory(Inventory inv) throws RemoteException {
+        return Inventory.createInventory(inv);
+    }
 
 }

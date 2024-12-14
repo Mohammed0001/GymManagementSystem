@@ -23,6 +23,8 @@ public class TrainingClass implements Serializable{
     private int capacity;
     @Expose
     private boolean isAvailable;
+      @Expose
+private int enrolledMembers;
 
     private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
     private static final long serialVersionUID = 3L;// Mohammed Abou Bakr
@@ -34,6 +36,7 @@ public class TrainingClass implements Serializable{
         this.schedule = schedule;
         this.capacity = capacity;
         this.isAvailable = isAvailable;
+         this.enrolledMembers = 0;
     }
 
     public boolean getIsAvailable() {
@@ -84,9 +87,29 @@ public class TrainingClass implements Serializable{
         this.capacity = capacity;
     }
 
+     public int getEnrolledMembers() {
+        return enrolledMembers;
+    }
     @Override
     public String toString() {
-        return "TrainingClass{" + "id=" + id + ", name=" + name + ", type=" + type + ", schedule=" + schedule + ", capacity=" + capacity + ", Availabilty=" + isAvailable + '}';
+        return "TrainingClass{" + "id=" + id + ", name=" + name + ", type=" + type
+                + ", schedule=" + schedule + ", capacity=" + capacity
+                + ", enrolledMembers=" + enrolledMembers + ", isAvailable=" + isAvailable + '}';
+    }
+    
+    public boolean hasSpace() {
+        return enrolledMembers < capacity;
+    }
+    
+    public boolean enrollMember() {
+        if (hasSpace()) {
+            enrolledMembers++;
+            if (enrolledMembers == capacity) {
+                isAvailable = false; // Update availability if class is full
+            }
+            return true;
+        }
+        return false;
     }
 
     public static boolean createTrainingClass(TrainingClass trainingClass) {

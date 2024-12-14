@@ -7,7 +7,7 @@ import mms.gymmanagementserver.DBConnector;
 
 /**
  *
- * @author Mohammed Abou Bakr
+ * @author hp
  */
 public class Inventory implements Serializable {
 
@@ -109,7 +109,7 @@ public class Inventory implements Serializable {
         System.out.println("Updating status for inventory " + name + " to: " + status);
     }
 
-    public static boolean createTrainingClass(Inventory inv) {
+    public static boolean createInventory(Inventory inv) {
         return DB.inserIntoDB(inv, "Inventory");
     }
 
@@ -121,11 +121,11 @@ public class Inventory implements Serializable {
         return DB.deleteFromDB(inv.getId(), "Inventory");
     }
 
-    public static ArrayList<Inventory> getAllAccounts() {
+    public static ArrayList<Inventory> getAllInv() {
         return DB.readAllFromDB("Inventory", Inventory.class);
     }
 
-    public static Inventory getAccount(int id) {
+    public static Inventory getInventory(int id) {
         return DB.readFromDB(id, "Inventory", Inventory.class);
     }
 
