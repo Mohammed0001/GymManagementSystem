@@ -4,7 +4,7 @@
  */
 package finance;
 
-import rmi.PaymentStrategy;
+import rmipack.PaymentStrategy;
 
 /**
  *

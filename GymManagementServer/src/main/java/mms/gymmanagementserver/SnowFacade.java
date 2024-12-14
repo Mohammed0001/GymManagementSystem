@@ -6,7 +6,7 @@ package mms.gymmanagementserver;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import rmi.PaymentStrategy;
+import rmipack.PaymentStrategy;
 
 /**
  *
