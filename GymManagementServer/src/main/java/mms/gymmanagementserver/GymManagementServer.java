@@ -1,12 +1,9 @@
 package mms.gymmanagementserver;
 
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import rmipack.PaymentStrategy;
+
 import services.Feedback;
 
 /**
@@ -38,11 +35,10 @@ public class GymManagementServer {
 
             KarimFacade KarimFacade = new KarimFacade();
             registry.rebind("KarimFacade", KarimFacade);
-            
-            
+
             KanziFacade kanziFacade = new KanziFacade(new Feedback(0, "", "", 0));
             registry.rebind("KanziFacade", kanziFacade);
-            
+
             System.out.println("The Registery is Ready");
         } catch (RemoteException ex) {
             System.out.println(ex);
