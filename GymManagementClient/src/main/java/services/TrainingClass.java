@@ -24,8 +24,6 @@ public class TrainingClass {
     private boolean isAvailable;
     
    
-
-    private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
     private static final long serialVersionUID = 3L;// Mohammed Abou Bakr
 
     public TrainingClass(int id, String name, String type, String schedule, int capacity, boolean isAvailable) {
@@ -88,26 +86,6 @@ public class TrainingClass {
     @Override
     public String toString() {
         return "TrainingClass{" + "id=" + id + ", name=" + name + ", type=" + type + ", schedule=" + schedule + ", capacity=" + capacity +", Availabilty="+ isAvailable + '}';
-    }
-
-    public static boolean createTrainingClass(TrainingClass trainingClass) {
-        return DB.inserIntoDB(trainingClass, "TrainingClass");
-    }
-
-    public static boolean updateTrainingClass(TrainingClass trainingClass) {
-        return DB.updateInDB(trainingClass.getId(), trainingClass, "TrainingClass");
-    }
-
-    public static boolean deleteTrainingClass(TrainingClass trainingClass) {
-        return DB.deleteFromDB(trainingClass.getId(), "TrainingClass");
-    }
-
-    public static ArrayList<TrainingClass> getAllClasses() {
-        return DB.readAllFromDB("TrainingClass", TrainingClass.class);
-    }
-
-    public static TrainingClass gettrainingClass(int id) {
-        return DB.readFromDB(id, "TrainingClass", TrainingClass.class);
     }
 
 }

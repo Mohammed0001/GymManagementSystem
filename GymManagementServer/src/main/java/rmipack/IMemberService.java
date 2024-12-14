@@ -6,16 +6,18 @@ package rmipack;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 import services.Progress;
+import services.TrainingClass;
 
 /**
  *
  * @author sarahhali
  */
 public interface IMemberService extends Remote {
-     Progress getProgressForPerson(int personId) throws RemoteException;
+     Progress getProgressForPerson(int id) throws RemoteException;
 
     // Fetch all available classes
-    List<String> getAvailableClasses() throws RemoteException;
+    ArrayList<TrainingClass> getAvailableClasses() throws RemoteException;
 }

@@ -128,19 +128,7 @@ public class DBConnector {
         return result;
     }
     
-    public Progress getProgressByPersonId(int personId) {
-    collection = database.getCollection("Progress");
-    Progress result = null;
-    try {
-        Document document = collection.find(eq("personId", personId)).first();
-        if (document != null) {
-            result = gson.fromJson(document.toJson(), Progress.class);
-        }
-    } catch (Exception e) {
-        System.out.println("Error fetching progress: " + e.getMessage());
-    }
-    return result;
-}
+
 
     public boolean runOnce() {
         String dbName = "GymManagement";

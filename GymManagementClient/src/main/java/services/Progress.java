@@ -8,26 +8,29 @@ import com.google.gson.annotations.Expose;
  */
 public class Progress implements IMemberProgressROI {
     @Expose
-    private int personId; 
+    private int id; 
     @Expose
     private double weight;
     @Expose
     private double bodyFatPercentage;
     @Expose
     private double muscleMass;
+    
+    private static final long serialVersionUID = 2L;
 
-    public Progress(int personId, double weight, double bodyFatPercentage, double muscleMass) {
-        this.personId = personId;
+
+    public Progress(int id, double weight, double bodyFatPercentage, double muscleMass) {
+        this.id = id;
         this.weight = weight;
         this.bodyFatPercentage = bodyFatPercentage;
         this.muscleMass = muscleMass;
     }
-    public int getPersonId() {
-        return personId;
+    public int geId() {
+        return id;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setId(int id) {
+        this.id = id;
     }
     public double getWeight() {
         return weight;
@@ -56,7 +59,7 @@ public class Progress implements IMemberProgressROI {
     @Override
     public String toString() {
         return "Progress{" +
-                "personId=" + personId +
+                "personId=" + id +
                 ", weight=" + weight +
                 ", bodyFatPercentage=" + bodyFatPercentage +
                 ", muscleMass=" + muscleMass +
