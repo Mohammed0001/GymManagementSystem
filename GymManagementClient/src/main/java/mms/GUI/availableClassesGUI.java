@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import mms.controllers.MemberController;
 
-
 /**
  *
  * @author sarahhali
@@ -23,28 +22,26 @@ public class availableClassesGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form availableClassesGUI
-         */
+     */
     Person p;
     private MemberController memberController;
-    
+
     public availableClassesGUI(Person p) {
         this.p = p;
         this.memberController = new MemberController();
         initComponents();
-        loadAvailableClasses();      
-    }           
-private void loadAvailableClasses() {
-    // Get the table model from the controller
-    DefaultTableModel tableModel = memberController.getAvailableClassesTableModel();
-
-    // Set the table model to the JTable
-    availableClassesTable.setModel(tableModel);
-}
-private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        // Navigate to the home screen
-        this.setVisible(false);
-        new memberGUI(p).setVisible(true);
+        loadAvailableClasses();
     }
+
+    private void loadAvailableClasses() {
+        // Get the table model from the controller
+        DefaultTableModel tableModel = memberController.getAvailableClassesTableModel();
+
+        // Set the table model to the JTable
+        availableClassesTable.setModel(tableModel);
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +72,11 @@ private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
         jScrollPane1.setViewportView(availableClassesTable);
 
         homeBTN.setText("Home");
+        homeBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTNActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Available Classes");
 
@@ -103,7 +105,13 @@ private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
+
+    private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTNActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new memberGUI(p).setVisible(true);
+    }//GEN-LAST:event_homeBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */

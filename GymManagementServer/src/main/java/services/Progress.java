@@ -1,6 +1,7 @@
 package services;
 
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import javax.swing.text.Document;
 import mms.gymmanagementserver.DBConnector;
 
@@ -8,19 +9,19 @@ import mms.gymmanagementserver.DBConnector;
  *
  * @author Mohammed Abou Bakr
  */
-public class Progress implements IMemberProgressROI {
+public class Progress implements IMemberProgressROI, Serializable {
+
     @Expose
-    private int id; 
+    private int id;
     @Expose
     private double weight;
     @Expose
     private double bodyFatPercentage;
     @Expose
     private double muscleMass;
-    
-        private static DBConnector DB = DBConnector.connectDB();
-        private static final long serialVersionUID = 4L;
 
+    private static DBConnector DB = DBConnector.connectDB();
+    private static final long serialVersionUID = 4L;
 
     public Progress(int id, double weight, double bodyFatPercentage, double muscleMass) {
         this.id = id;
@@ -28,6 +29,7 @@ public class Progress implements IMemberProgressROI {
         this.bodyFatPercentage = bodyFatPercentage;
         this.muscleMass = muscleMass;
     }
+
     public int getId() {
         return id;
     }
@@ -35,6 +37,7 @@ public class Progress implements IMemberProgressROI {
     public void setId(int id) {
         this.id = id;
     }
+
     public double getWeight() {
         return weight;
     }
@@ -61,18 +64,17 @@ public class Progress implements IMemberProgressROI {
 
     @Override
     public String toString() {
-        return "Progress{" +
-                "personId=" + id +
-                ", weight=" + weight +
-                ", bodyFatPercentage=" + bodyFatPercentage +
-                ", muscleMass=" + muscleMass +
-                '}';
+        return "Progress{"
+                + "personId=" + id
+                + ", weight=" + weight
+                + ", bodyFatPercentage=" + bodyFatPercentage
+                + ", muscleMass=" + muscleMass
+                + '}';
     }
-    
-    
+
     public static Progress getProgressByPersonId(int id) {
-    
-    Progress result = DB.readFromDB(id, "Progress", Progress.class);
-    return result;
-}
+
+        Progress result = DB.readFromDB(id, "Progress", Progress.class);
+        return result;
+    }
 }

@@ -1,29 +1,21 @@
 package services;
 
-import com.google.gson.annotations.Expose;
-import java.util.ArrayList;
-import mms.gymmanagementserver.DBConnector;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Mohammed Abou Bakr
  */
-public class TrainingClass {
+public class TrainingClass implements Serializable{
 
-    @Expose
     private int id;
-    @Expose
     private String name;
-    @Expose
     private String type;
-    @Expose
     private String schedule;
-    @Expose
     private int capacity;
-    @Expose
     private boolean isAvailable;
     
-   
     private static final long serialVersionUID = 3L;// Mohammed Abou Bakr
 
     public TrainingClass(int id, String name, String type, String schedule, int capacity, boolean isAvailable) {
