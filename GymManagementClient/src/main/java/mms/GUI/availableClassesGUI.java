@@ -34,16 +34,11 @@ public class availableClassesGUI extends javax.swing.JFrame {
         loadAvailableClasses();      
     }           
 private void loadAvailableClasses() {
-    DefaultListModel<String> classesModel = memberController.getAvailableClassesModel();
-    DefaultTableModel tableModel = (DefaultTableModel) availableClassesTable.getModel();
+    // Get the table model from the controller
+    DefaultTableModel tableModel = memberController.getAvailableClassesTableModel();
 
-    // Clear existing rows
-    tableModel.setRowCount(0);
-
-    // Add rows from the classesModel
-    for (int i = 0; i < classesModel.getSize(); i++) {
-        tableModel.addRow(new Object[]{classesModel.get(i)});
-    }
+    // Set the table model to the JTable
+    availableClassesTable.setModel(tableModel);
 }
 private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
         // Navigate to the home screen
