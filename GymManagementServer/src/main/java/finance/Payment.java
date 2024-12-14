@@ -4,6 +4,9 @@
  */
 package finance;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import rmi.PaymentStrategy;
 /**
  *
  * @author hp
@@ -13,8 +16,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import mms.gymmanagementserver.DBConnector;
 
-public class Payment {
-    private int id;
+public class Payment extends UnicastRemoteObject implements PaymentStrategy {
+    private int id; 
     private int memberID;
     private double amount;
     private int transactionID;
@@ -32,7 +35,7 @@ public class Payment {
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.currency = currency;
-        this.status = "Pending";
+        this.status = "Pending still";
         this.date = new Date().toString();
         this.paymentStrategy = paymentStrategy;
     }
@@ -119,21 +122,53 @@ public class Payment {
             status = "Failed";
             System.out.println("Payment failed for transaction ID: " + transactionID);
             return false;
+        } else {
+            status = "Completed";
+            System.out.println("Payment successful for transaction ID: " + transactionID);
+            return true;
         }
     }
 
+    // Method to refund a payment
     public void refundPayment() {
         System.out.println("Refunding payment for transaction ID: " + transactionID);
         status = "Refunded";
     }
 
+    // Setter for payment strategy
     public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
         this.paymentStrategy = paymentStrategy;
     }
 
+    // Getter for payment status
     public String getPaymentStatus() {
         return status;
     }
+
+    // Implementation of processPayment from PaymentStrategy
+    @Override
+    public String processPayment(double amount, String currency) throws RemoteException {
+        // Default implementation (can be overridden by specific strategies)
+        return "Payment processed successfully for " + amount + " " + currency;
+    }
+
+    // Implementation of validateTransaction from PaymentStrategy
+    @Override
+    public String validateTransaction() throws RemoteException {
+        // Default implementation (can be overridden by specific strategies)
+        return "Transaction validated successfully.";
+    }
+
+    // Implementation of retryPayment from PaymentStrategy
+    @Override
+    public String retryPayment(double amount, int retries) throws RemoteException {
+        if (retries > 0) {
+            return "Payment retry successful with " + retries + " attempts remaining.";
+        } else {
+            return "Payment retry failed: No retries remaining.";
+        }
+    }
+}
     
     public static boolean createPayment(Payment pt) throws RemoteException {
         return DB.inserIntoDB(pt, "Payment");
