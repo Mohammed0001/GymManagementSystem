@@ -1,13 +1,17 @@
+package rmipack;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package services;
 
 /**
  *
  * @author kanzihaitham
  */
-public interface MemberObserver {
-    void update (String feedbackDetails);
+public interface MemberObserver extends Remote {
+    void update (String feedbackDetails) throws RemoteException;
 }

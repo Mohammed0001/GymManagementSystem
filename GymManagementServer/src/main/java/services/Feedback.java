@@ -2,11 +2,13 @@ package services;
 
 
 
-import services.MemberObserver;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import rmipack.FeedbackNotifier;
+import rmipack.MemberObserver;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -21,7 +23,8 @@ public class Feedback extends UnicastRemoteObject implements FeedbackNotifier {
     private String details;
     private String dateProvided;
     private double rating;
-    private List<MemberObserver> observers= new ArrayList<>();
+    private ArrayList<MemberObserver> observers;
+   
     
     public Feedback(int id, String details, String dateProvided, double rating) throws RemoteException {
         this.id = id;
@@ -65,19 +68,19 @@ public class Feedback extends UnicastRemoteObject implements FeedbackNotifier {
     }
     // FeedbackNotifier Methods
 @Override
-    public void registerObserver(MemberObserver observer) {
+    public void registerObserver(MemberObserver observer)  throws RemoteException {
         observers.add(observer);
         System.out.println("Observer registered.");
     }
     
   @Override
-    public void removeObserver(MemberObserver observer) {
+    public void removeObserver(MemberObserver observer)   throws RemoteException{
         observers.remove(observer);
         System.out.println("Observer removed.");
     }
 
     @Override
-    public void notifyObservers(String feedbackDetails) {
+    public void notifyObservers(String feedbackDetails) throws RemoteException {
         System.out.println("Notifying observers...");
         for (MemberObserver observer : observers) {
             observer.update(feedbackDetails);
