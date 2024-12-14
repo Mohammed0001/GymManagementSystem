@@ -4,12 +4,17 @@
  */
 package mms.GUI;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import mms.controllers.PaymentController;
+import rmi.PaymentStrategy;
 
 /**
  *
@@ -17,11 +22,18 @@ import javax.swing.JTextField;
  */
 public class StrategyPaymentsGUI extends javax.swing.JFrame {
 
+    private Registry r;
+
     /**
      * Creates new form StrategyPaymentsGUI
      */
     public StrategyPaymentsGUI() {
         initComponents();
+        jLabel1.setText("Gym Management System");
+
+        jTextField1.setText("");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PayPal", "Credit Card", "Bank Transfer" }));
     }
 
     /**
@@ -50,6 +62,11 @@ public class StrategyPaymentsGUI extends javax.swing.JFrame {
         });
 
         jButton1.setText("Submit Button");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -114,40 +131,30 @@ public class StrategyPaymentsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    //get the value from the combobox, then send it to the controller, then the controller should return the strategy and then finally should display that in the output message
+     try {
+         PaymentController pp = new PaymentController();
+            // Get the selected payment method from the combo box
+            String paymentMethod = (String) jComboBox1.getSelectedItem();
+            
+            // Send the payment me
+            // Get thod to the controller and get the result
+             String result = pp.fetchPaymentDetails(paymentMethod);
+            
+            // Display the result in the text area
+            jTextArea1.setText(result);
+        } catch (Exception ex) {
+            jTextArea1.setText("An error occurred: " + ex.getMessage());
+        }
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StrategyPaymentsGUI().setVisible(true);
-            }
-        });
-    }
+    
 
     public JButton getjButton1() {
         return jButton1;
@@ -169,10 +176,15 @@ public class StrategyPaymentsGUI extends javax.swing.JFrame {
         return jTextArea1;
     }
 
+    /**
+     * @param args the command line arguments
+     */
     public JTextField getjTextField1() {
         return jTextField1;
     }
 
+
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;

@@ -6,49 +6,51 @@ package mms.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mms.GUI.StrategyPaymentsGUI;
 import rmi.PaymentStrategy;
+import rmipack.IUserAuth;
 
 /**
  *
  * @author hp
  */
 public class PaymentController {
-    StrategyPaymentsGUI gui;
-    Registry r;
 
-    public PaymentController(StrategyPaymentsGUI gui, Registry r) {
-        this.gui = gui;
-        this.r = r;
-        gui.getjButton1().addActionListener(new GetPayment());
-    }
+    Registry registry;
+    PaymentStrategy payment;
 
-    class GetPayment implements ActionListener {
+    public PaymentController() {
+        try {
+            this.registry = LocateRegistry.getRegistry(1099);
+            this.payment = (PaymentStrategy) registry.lookup("AhmedFacade");
 
-        // This function executes when the button is clicked
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            try {
-                // Obtain a remote reference to the PaymentStrategy remote object
-                PaymentStrategy g = (PaymentStrategy) r.lookup("payment");
-
-                // Get the payment method selected in the combo box
-                String paymentMethod = (String) gui.getjComboBox1().getSelectedItem();
-
-                // Get the payment details from the remote object
-                String paymentDetails = g.getPayment(paymentMethod);
-
-                // Display the payment details in the label
-                gui.getjLabel1().setText(paymentDetails);
-
-            } catch (RemoteException | NotBoundException ex) {
-                Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    // Method to fetch payment details
+    public String fetchPaymentDetails(String paymentMethod) {
+        try {
+            // Look up the PaymentStrategy object in the registry
+            // Fetch the payment details for the selected payment method
+            String paymentDetails = payment.getPayment(paymentMethod);
+
+            // Return the fetched payment details
+            return "Selected Payment Strategy: " + paymentDetails;
+
+        } catch (Exception ex) {
+            return "An unexpected error occurred: " + ex.getMessage();
+        }
+    }
+
 }
