@@ -8,11 +8,14 @@ package mms.controllers;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.chart.PieChart;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 import rmipack.IMemberService;
 import services.Progress;
+import services.TrainingClass;
 
 /**
  *
@@ -30,21 +33,34 @@ public class MemberController {
         }
     }
 
-    // Fetches available classes and returns a DefaultListModel for GUI
-    public DefaultListModel<String> getAvailableClassesModel() {
-    DefaultListModel<String> listModel = new DefaultListModel<>();
+  // Fetches available classes and returns a DefaultTableModel for GUI
+public DefaultTableModel getAvailableClassesTableModel() {
+    // Create table model and set column headers
+    DefaultTableModel tableModel = new DefaultTableModel();
+    tableModel.setColumnIdentifiers(new String[] { "Class Name", "Type", "Schedule", "Capacity", "Availability" });
+
     try {
-        List<String> availableClasses = sarahFacade.getAvailableClasses(); // Corrected
+        // Fetch available classes from SarahFacade
+        ArrayList<TrainingClass> availableClasses = sarahFacade.getAvailableClasses();
         if (availableClasses != null) {
-            for (String className : availableClasses) {
-                listModel.addElement(className);
+            // Iterate through the list and populate the table model
+            for (TrainingClass trainingClass : availableClasses) {
+                tableModel.addRow(new Object[] {
+                    trainingClass.getName(),                // Class Name
+                    trainingClass.getType(),                // Type
+                    trainingClass.getSchedule(),            // Schedule
+                    trainingClass.getCapacity(),            // Capacity
+                    trainingClass.getIsAvailable() ? "Available" : "Full" // Availability
+                });
             }
         }
     } catch (RemoteException e) {
         e.printStackTrace();
     }
-    return listModel;
+
+    return tableModel;
 }
+
 
     public PieChart getProgressChart(int memberId) {
     PieChart pieChart = new PieChart();
