@@ -3,6 +3,7 @@ package services;
 
 
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -20,13 +21,13 @@ import users.Person;
  *
  * @author kanzihaitham
  */
-public class Feedback extends UnicastRemoteObject implements FeedbackNotifier {
+public class Feedback extends UnicastRemoteObject implements FeedbackNotifier, Serializable {
     private int id;
     private String details;
     private String dateProvided;
     private double rating;
     private ArrayList<MemberObserver> observers;
-    
+
     
     private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 8L;
