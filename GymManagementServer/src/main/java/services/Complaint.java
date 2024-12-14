@@ -38,9 +38,6 @@ public class Complaint implements Serializable{
     private Gymmanager managedBy;
     @Expose
     private ComplaintState compliantState;
-
-
-
     @Expose
     private String comp;
 
