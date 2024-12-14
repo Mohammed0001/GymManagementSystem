@@ -42,23 +42,5 @@ public class MedicalTeam extends Person{
         return "MedicalTeam{" + "specialization=" + specialization + '}';
     }
     
-    public static boolean createAccount(MedicalTeam m) throws RemoteException {
-        return DB.inserIntoDB(m, "MedicalTeam");
-    }
-
-    public static ArrayList<MedicalTeam> getAllMedicalTeam() {
-        return DB.readAllFromDB("MedicalTeam", MedicalTeam.class);
-    }
-
-    public static Person getAccount(int id) {
-        return DB.readFromDB(id, "MedicalTeam", MedicalTeam.class);
-    }
-
-    public static boolean updateAccount(MedicalTeam m) throws RemoteException {
-        return DB.updateInDB(m.getId(), m, "MedicalTeam");
-    }
-
-    public static boolean deleteAccount(MedicalTeam m) throws RemoteException {
-        return DB.deleteFromDB(m.getId(), "MedicalTeam");
-    }
+   
 }

@@ -35,23 +35,5 @@ public class Accountant extends Person{
         return "Accountant{" + "accessLevel=" + accessLevel + '}';
     }
     
-     public static boolean createAccount(Accountant a) throws RemoteException {
-        return DB.inserIntoDB(a, "Accountant");
-    }
-
-    public static ArrayList<Accountant> getAllAccountant () {
-        return DB.readAllFromDB("Accountant ", Accountant.class);
-    }
-
-    public static Person getAccount(int id) {
-        return DB.readFromDB(id, "Accountant ", Accountant.class);
-    }
-
-    public static boolean updateAccount(Accountant a) throws RemoteException {
-        return DB.updateInDB(a.getId(), a, "Accountant ");
-    }
-
-    public static boolean deleteAccount(Accountant a) throws RemoteException {
-        return DB.deleteFromDB(a.getId(), "Accountant");
-    }
+     
 }

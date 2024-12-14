@@ -77,23 +77,5 @@ public class Trainer extends Person {
         System.out.println("Creating workout plan for member ID: " + memberId);
     }
     
-     public static boolean createTrainer(Trainer t) throws RemoteException {
-        return DB.inserIntoDB(t, "Trainer");
-    }
-
-    public static ArrayList<Trainer> getAllTrainers() {
-        return DB.readAllFromDB("Trainer", Trainer.class);
-    }
-
-    public static Trainer getTrainer(int id) {
-        return DB.readFromDB(id, "Trainer", Trainer.class);
-    }
-
-    public static boolean updateTrainer(Trainer t) throws RemoteException {
-        return DB.updateInDB(t.getId(), t, "Trainer");
-    }
-
-    public static boolean deleteTrainer(Trainer t) throws RemoteException {
-        return DB.deleteFromDB(t.getId(), "Trainer");
-    }
+   
 }

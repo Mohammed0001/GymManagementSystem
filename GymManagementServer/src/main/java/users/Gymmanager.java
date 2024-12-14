@@ -5,12 +5,9 @@ package users;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
-import mms.gymmanagementserver.Branch;
 import static users.Person.DB;
-=======
 import services.Branch;
->>>>>>> fa4f8b6e797b376145550bc0e054f64b06c60e71
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
