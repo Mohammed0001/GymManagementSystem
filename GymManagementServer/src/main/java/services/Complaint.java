@@ -1,11 +1,11 @@
 package services;
 
-<<<<<<< Updated upstream
+
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-=======
+
 import java.io.Serializable;
->>>>>>> Stashed changes
+
 import mms.gymmanagementserver.DBConnector;
 import users.Gymmanager;
 import users.Member;
@@ -40,14 +40,13 @@ public class Complaint implements Serializable{
     private Gymmanager managedBy;
     @Expose
     private ComplaintState compliantState;
-<<<<<<< Updated upstream
+
      private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 9L;
 
-=======
     @Expose
     private String comp;
->>>>>>> Stashed changes
+
 
     private static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 7L;
@@ -212,7 +211,6 @@ public static boolean createComplaint(Complaint c) throws RemoteException {
     );
     return DB.inserIntoDB(minimalComplaint, "Complaint");
 }
->>>>>>> Stashed changes
 
     public static ArrayList<Subscription> getAllComplaint() {
         return DB.readAllFromDB("Complaint", Subscription.class);
