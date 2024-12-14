@@ -5,6 +5,8 @@
  */
 package mms.GUI;
 
+import javax.swing.table.DefaultTableModel;
+import mms.controllers.AccountantController;
 import users.Person;
 
 /**
@@ -19,6 +21,7 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
         this.P = P;
         initComponents();
         this.Welcome.setText("Welcome!" + P.getName());
+        loadSubscriptions(); 
     }
     
     public 
@@ -93,9 +96,9 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
                             .addComponent(Welcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(RenewBTN)
-                                .addGap(62, 62, 62)
-                                .addComponent(HomeBTN)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(HomeBTN)
+                                .addGap(39, 39, 39)
                                 .addComponent(CancelBTN))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,13 +145,16 @@ public class manageSubscriptionGUI extends javax.swing.JFrame {
 
     private void RenewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RenewBTNActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_RenewBTNActionPerformed
 
     private void CancelBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelBTNActionPerformed
-
+private void loadSubscriptions() {
+    AccountantController accountantController = new AccountantController();
+    DefaultTableModel tableModel = accountantController.getSubscriptionsTableModel();
+    SubscriptonTable.setModel(tableModel);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBTN;
     private javax.swing.JButton HomeBTN;

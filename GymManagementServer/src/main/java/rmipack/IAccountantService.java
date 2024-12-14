@@ -10,7 +10,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import services.SubscriptionDTO;
 
-
 /**
  *
  * @author Karim 219226
