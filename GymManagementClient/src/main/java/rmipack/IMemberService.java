@@ -8,6 +8,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import services.Complaint;
 import services.Progress;
 import services.TrainingClass;
 
@@ -16,8 +17,10 @@ import services.TrainingClass;
  * @author sarahhali
  */
 public interface IMemberService extends Remote {
+    
     Progress getProgressForPerson(int id) throws RemoteException;
 
-    // Fetch all available classes
     ArrayList<TrainingClass> getAvailableClasses() throws RemoteException;
+    
+    boolean submitComplaint(Complaint complaint) throws RemoteException;
 }

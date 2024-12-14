@@ -1,14 +1,11 @@
 package services;
 
-<<<<<<< Updated upstream
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-=======
+//import mms.gymmanagementserver.DBConnector;
+
 import java.io.Serializable;
->>>>>>> Stashed changes
-import mms.gymmanagementserver.DBConnector;
-import users.Gymmanager;
-import users.Member;
+
+//import users.Gymmanager;
+//import users.Member;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,55 +15,37 @@ import users.Member;
  *
  * @author Karim 219226
  */
-public class Complaint implements Serializable{
+public class Complaint implements Serializable {
 
-    @Expose
-    private int id; 
-    @Expose
+    private int id;
     private String name;
-    @Expose
-    private Member complainer;
-    @Expose
+    //private Member complainer;
     private String email;
-    @Expose
     private String dateSubmitted;
-    @Expose
     private String resolutionDate;
-    @Expose
     private String status;
-    @Expose
     private String feedback;
-    @Expose
-    private Gymmanager managedBy;
-    @Expose
-    private ComplaintState compliantState;
-<<<<<<< Updated upstream
-     private static DBConnector DB = DBConnector.connectDB();
-    private static final long serialVersionUID = 9L;
-
-=======
-    @Expose
     private String comp;
->>>>>>> Stashed changes
+    //private Gymmanager managedBy;
+    //private ComplaintState compliantState;
 
-    private static DBConnector DB = DBConnector.connectDB();
+
     private static final long serialVersionUID = 7L;
 
-    public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String feedback, Gymmanager managedBy, ComplaintState compliantState, String comp) {
+    public Complaint(int id, String name, String email, String dateSubmitted, String resolutionDate, String status, String feedback, String comp) {
         this.id = id;
         this.name = name;
-        this.complainer = complainer;
+       // this.complainer = complainer;
         this.email = email;
         this.dateSubmitted = dateSubmitted;
         this.resolutionDate = resolutionDate;
         this.status = status;
         this.feedback = feedback;
-        this.managedBy = managedBy;
-        this.compliantState = compliantState;
         this.comp = comp;
+        //this.managedBy = managedBy;
+        //this.compliantState = compliantState;
     }
-    
-      // Constructor for minimal complaint details
+  // Constructor for minimal complaint details
     public Complaint(int id, String name, String comp, String dateSubmitted) {
         this.id = id;
         this.name = name;
@@ -81,6 +60,7 @@ public class Complaint implements Serializable{
     public void setComp(String comp) {
         this.comp = comp;
     }
+    
     public int getId() {
         return id;
     }
@@ -96,7 +76,7 @@ public class Complaint implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public Member getComplainer() {
         return complainer;
     }
@@ -104,7 +84,7 @@ public class Complaint implements Serializable{
     public void setComplainer(Member complainer) {
         this.complainer = complainer;
     }
-
+*/
     public String getEmail() {
         return email;
     }
@@ -144,7 +124,7 @@ public class Complaint implements Serializable{
     public void setfeedback(String feedback) {
         this.feedback = feedback;
     }
-
+/*
     public Gymmanager getManagedBy() {
         return managedBy;
     }
@@ -171,16 +151,16 @@ public class Complaint implements Serializable{
         this.status = "In Review";
         this.compliantState = new InReviewState(this);
     }
-
+*/
     public String getComplaint() {
         return "Complaint ID: " + id + ",Name: " + name + ", Status" + status;
     }
-
+/*
     public void markResolved(String s) {
         this.status = "Resolved";
         this.compliantState.resolved();
     }
-
+*/
     public String addFeedback() {
         return "";
     }
@@ -195,38 +175,8 @@ public class Complaint implements Serializable{
 
     @Override
     public String toString() {
-        return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", feedback=" + feedback + ", managedBy=" + managedBy + ", compliantState=" + compliantState + "Complain"+ comp+ '}';
-    }
-<<<<<<< Updated upstream
-public static boolean createComplaint(Complaint c) throws RemoteException {
-        return DB.inserIntoDB(c, "Complaint");
-    }
-=======
-    
-    public static boolean insertComplaintToDB(Complaint complaint) {
-    Complaint minimalComplaint = new Complaint(
-        complaint.getId(),
-        complaint.getName(),
-        complaint.getComp(),
-        complaint.getDateSubmitted()
-    );
-    return DB.inserIntoDB(minimalComplaint, "Complaint");
-}
->>>>>>> Stashed changes
-
-    public static ArrayList<Subscription> getAllComplaint() {
-        return DB.readAllFromDB("Complaint", Subscription.class);
+        return "Complaint{" + "id=" + id + ", name=" + name + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", feedback=" + feedback + '}';
     }
 
-    public static boolean getComplaint(int id) {
-        return DB.readFromDB(id, "Complaint", Complaint.class);
-    }
 
-    public static boolean updateComplaint(Complaint c) throws RemoteException {
-        return DB.updateInDB(c.getId(), c, "Complaint");
-    }
-
-    public static boolean deleteComplaint(Complaint c) throws RemoteException {
-        return DB.deleteFromDB(c.getId(), "Complaint");
-    }
 }
