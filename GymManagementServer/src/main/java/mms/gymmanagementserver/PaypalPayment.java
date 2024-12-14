@@ -11,21 +11,27 @@ import rmi.PaymentStrategy;
  * @author hp
  */
 public class PaypalPayment implements PaymentStrategy {
+    
     @Override
-    public boolean processPayment(double amount, String currency) {
+    public String processPayment(double amount, String currency) {
         System.out.println("Processing PayPal payment of " + amount + " " + currency);
-        return true;
+        return "Payment processed successfully: " + amount + " " + currency;
     }
 
     @Override
-    public boolean validateTransaction() {
+    public String validateTransaction() {
         System.out.println("Validating PayPal transaction...");
-        return true;
+        return "Transaction validated successfully.";
     }
 
     @Override
-    public boolean retryPayment(double amount, int retries) {
-        System.out.println("Retrying PayPal payment (" + retries + " attempts remaining).");
-        return retries > 0;
+    public String retryPayment(double amount, int retries) {
+        if (retries > 0) {
+            System.out.println("Retrying PayPal payment (" + retries + " attempts remaining).");
+            return "Payment retry successful with " + retries + " attempts remaining.";
+        } else {
+            System.out.println("No retries remaining for PayPal payment.");
+            return "Payment retry failed: No retries remaining.";
+        }
     }
 }

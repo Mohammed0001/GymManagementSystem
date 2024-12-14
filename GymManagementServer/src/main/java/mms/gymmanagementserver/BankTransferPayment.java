@@ -11,21 +11,27 @@ import rmi.PaymentStrategy;
  * @author hp
  */
 public class BankTransferPayment implements PaymentStrategy {
+
     @Override
-    public boolean processPayment(double amount, String currency) {
+    public String processPayment(double amount, String currency) {
         System.out.println("Processing Bank Transfer payment of " + amount + " " + currency);
-        return true;
+        return "Bank Transfer payment of " + amount + " " + currency + " processed successfully.";
     }
 
     @Override
-    public boolean validateTransaction() {
+    public String validateTransaction() {
         System.out.println("Validating Bank Transfer transaction...");
-        return true;
+        return "Bank Transfer transaction validated successfully.";
     }
 
     @Override
-    public boolean retryPayment(double amount, int retries) {
-        System.out.println("Retrying Bank Transfer payment (" + retries + " attempts remaining).");
-        return retries > 0;
+    public String retryPayment(double amount, int retries) {
+        if (retries > 0) {
+            System.out.println("Retrying Bank Transfer payment (" + retries + " attempts remaining).");
+            return "Bank Transfer payment retry successful. " + retries + " attempts remaining.";
+        } else {
+            System.out.println("No retries remaining for Bank Transfer payment.");
+            return "Bank Transfer payment retry failed: No retries remaining.";
+        }
     }
 }

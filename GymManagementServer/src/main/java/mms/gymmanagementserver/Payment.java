@@ -9,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import rmi.PaymentStrategy;
 import java.util.Date;
 
-public class Payment extends UnicastRemoteObject implements PaymentStrategy{
+public class Payment extends UnicastRemoteObject implements PaymentStrategy {
     private int id;
     private int memberID;
     private double amount;
@@ -20,7 +20,9 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy{
     private String status;
     private PaymentStrategy paymentStrategy;
 
-    public Payment(int id, int memberID, double amount, String paymentMethod, String currency, PaymentStrategy paymentStrategy) {
+    // Constructor with parameters
+    public Payment(int id, int memberID, double amount, String paymentMethod, String currency, PaymentStrategy paymentStrategy) throws RemoteException {
+        super(); // Required for UnicastRemoteObject
         this.id = id;
         this.memberID = memberID;
         this.amount = amount;
@@ -31,48 +33,62 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy{
         this.paymentStrategy = paymentStrategy;
     }
 
+    // Default constructor
     public Payment() throws RemoteException {
+        
     }
-    
-    
 
-    public boolean makePayment() {
-        if (paymentStrategy.processPayment(amount, currency)) {
-            status = "Completed";
-            System.out.println("Payment successful for transaction ID: " + transactionID);
-            return true;
-        } else {
+    // Method to make a payment
+    public boolean makePayment() throws RemoteException {
+        String result = paymentStrategy.processPayment(amount, currency);
+        if (result.contains("failed")) { // Check if payment failed
             status = "Failed";
             System.out.println("Payment failed for transaction ID: " + transactionID);
             return false;
+        } else {
+            status = "Completed";
+            System.out.println("Payment successful for transaction ID: " + transactionID);
+            return true;
         }
     }
 
+    // Method to refund a payment
     public void refundPayment() {
         System.out.println("Refunding payment for transaction ID: " + transactionID);
         status = "Refunded";
     }
 
+    // Setter for payment strategy
     public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
         this.paymentStrategy = paymentStrategy;
     }
 
+    // Getter for payment status
     public String getPaymentStatus() {
         return status;
     }
 
+    // Implementation of processPayment from PaymentStrategy
     @Override
-    public boolean processPayment(double amount, String currency) throws RemoteException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String processPayment(double amount, String currency) throws RemoteException {
+        // Default implementation (can be overridden by specific strategies)
+        return "Payment processed successfully for " + amount + " " + currency;
     }
 
+    // Implementation of validateTransaction from PaymentStrategy
     @Override
-    public boolean validateTransaction() throws RemoteException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String validateTransaction() throws RemoteException {
+        // Default implementation (can be overridden by specific strategies)
+        return "Transaction validated successfully.";
     }
 
+    // Implementation of retryPayment from PaymentStrategy
     @Override
-    public boolean retryPayment(double amount, int retries) throws RemoteException{
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String retryPayment(double amount, int retries) throws RemoteException {
+        if (retries > 0) {
+            return "Payment retry successful with " + retries + " attempts remaining.";
+        } else {
+            return "Payment retry failed: No retries remaining.";
+        }
     }
 }
