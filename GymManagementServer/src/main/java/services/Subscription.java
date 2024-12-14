@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package services;
+
+import com.mongodb.DB;
 import finance.Payment;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import mms.gymmanagementserver.DBConnector;
+
 /**
  *
  * @author sarahhali
@@ -19,6 +25,9 @@ public class Subscription {
     private double discount;
     private String startDate;
     private String endDate;
+        private static DBConnector DB = DBConnector.connectDB();
+    private static final long serialVersionUID = 9L;
+
 
     // Constructor
     public Subscription(int id, String type, double price, String description, boolean isRenewable,
@@ -151,6 +160,26 @@ public class Subscription {
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 '}';
+    }
+    
+     public static boolean createSubscription(Subscription s) throws RemoteException {
+        return DB.inserIntoDB(s, "Subscription");
+    }
+
+    public static ArrayList<Subscription> getAllSubscription() {
+        return DB.readAllFromDB("Subscription", Subscription.class);
+    }
+
+    public static boolean getSubscription(int id) {
+        return DB.readFromDB(id, "Subscription", Subscription.class);
+    }
+
+    public static boolean updateSubscription(Subscription s) throws RemoteException {
+        return DB.updateInDB(s.getId(), s, "Subscription");
+    }
+
+    public static boolean deleteSubscription(Subscription s) throws RemoteException {
+        return DB.deleteFromDB(s.getId(), "Subscription");
     }
 }
 

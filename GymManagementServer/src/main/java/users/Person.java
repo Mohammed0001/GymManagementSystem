@@ -28,7 +28,7 @@ public class Person implements Serializable {
     @Expose
     private String role;
 
-    private static DBConnector DB = DBConnector.connectDB();
+    static DBConnector DB = DBConnector.connectDB();
     private static final long serialVersionUID = 1L;
 
     public Person() {

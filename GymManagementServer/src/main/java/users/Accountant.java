@@ -1,6 +1,10 @@
 
 package users;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import static users.Person.DB;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -30,4 +34,6 @@ public class Accountant extends Person{
     public String toString() {
         return "Accountant{" + "accessLevel=" + accessLevel + '}';
     }
+    
+     
 }

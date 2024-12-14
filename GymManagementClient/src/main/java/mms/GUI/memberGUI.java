@@ -6,11 +6,11 @@ import users.Person;
  *
  * @author sarahhali
  */
-public class MemberGUI extends javax.swing.JFrame {
+public class memberGUI extends javax.swing.JFrame {
 
     Person p;
 
-    public MemberGUI(Person p) {
+    public memberGUI(Person p) {
         this.p = p;
         initComponents();
         this.greatingLabel.setText("Welcome! " + p.getName());

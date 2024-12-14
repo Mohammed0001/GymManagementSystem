@@ -1,23 +1,20 @@
 package services;
 
-import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 /**
  *
  * @author Mohammed Abou Bakr
  */
-public class Progress implements IMemberProgressROI {
-    @Expose
-    private int id; 
-    @Expose
-    private double weight;
-    @Expose
-    private double bodyFatPercentage;
-    @Expose
-    private double muscleMass;
-    
-    private static final long serialVersionUID = 4L;
+public class Progress implements Serializable {
 
+    private int id;
+    private double weight;
+    private double bodyFatPercentage;
+
+    private double muscleMass;
+
+    private static final long serialVersionUID = 4L;
 
     public Progress(int id, double weight, double bodyFatPercentage, double muscleMass) {
         this.id = id;
@@ -25,6 +22,7 @@ public class Progress implements IMemberProgressROI {
         this.bodyFatPercentage = bodyFatPercentage;
         this.muscleMass = muscleMass;
     }
+
     public int geId() {
         return id;
     }
@@ -32,6 +30,7 @@ public class Progress implements IMemberProgressROI {
     public void setId(int id) {
         this.id = id;
     }
+
     public double getWeight() {
         return weight;
     }
@@ -58,11 +57,11 @@ public class Progress implements IMemberProgressROI {
 
     @Override
     public String toString() {
-        return "Progress{" +
-                "personId=" + id +
-                ", weight=" + weight +
-                ", bodyFatPercentage=" + bodyFatPercentage +
-                ", muscleMass=" + muscleMass +
-                '}';
+        return "Progress{"
+                + "personId=" + id
+                + ", weight=" + weight
+                + ", bodyFatPercentage=" + bodyFatPercentage
+                + ", muscleMass=" + muscleMass
+                + '}';
     }
 }

@@ -2,13 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package mms.gymmanagementserver;
+package services;
 
 /**
  *
  * @author hp
  */
+import java.rmi.RemoteException;
+import services.Inventory;
 import java.util.ArrayList;
+import mms.gymmanagementserver.DBConnector;
 import users.Trainer;
 
 
@@ -18,6 +21,9 @@ public class Branch {
     private String location;
     private ArrayList<Inventory> inventory;
  private ArrayList<Trainer> trainers;
+ 
+    private static DBConnector DB = DBConnector.connectDB();
+    private static final long serialVersionUID = 4L;
     // Constructor
     public Branch(int id, String name, String location) {
         this.id = id;
@@ -126,5 +132,26 @@ public class Branch {
     public void removeTrainer(Trainer trainer) {
         trainers.remove(trainer);
         System.out.println("Trainer removed: " + trainer.getName());
+    }
+    
+    
+     public static boolean createBranch(Branch b) throws RemoteException {
+        return DB.inserIntoDB(b, "Branch");
+    }
+
+    public static ArrayList<Branch> getAllBranch() {
+        return DB.readAllFromDB("Branch", Branch.class);
+    }
+
+    public static boolean getBranch(int id) {
+        return DB.readFromDB(id, "Branch", Branch.class);
+    }
+
+    public static boolean updateProgress(Branch b) throws RemoteException {
+        return DB.updateInDB(b.getId(), b, "Branch");
+    }
+
+    public static boolean deleteProgress(Branch b) throws RemoteException {
+        return DB.deleteFromDB(b.getId(), "Branch");
     }
 }

@@ -5,6 +5,9 @@
  */
 package users;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 /**
  *
  * @author ahmed
@@ -73,4 +76,6 @@ public class Trainer extends Person {
     public void createWorkoutPlan(int memberId) {
         System.out.println("Creating workout plan for member ID: " + memberId);
     }
+    
+   
 }

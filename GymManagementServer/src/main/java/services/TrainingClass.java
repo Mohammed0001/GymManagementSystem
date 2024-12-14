@@ -1,6 +1,7 @@
 package services;
 
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.ArrayList;
 import mms.gymmanagementserver.DBConnector;
 
@@ -8,7 +9,7 @@ import mms.gymmanagementserver.DBConnector;
  *
  * @author Mohammed Abou Bakr
  */
-public class TrainingClass {
+public class TrainingClass implements Serializable{
 
     @Expose
     private int id;
@@ -22,7 +23,6 @@ public class TrainingClass {
     private int capacity;
     @Expose
     private boolean isAvailable;
-    
 
     private static DBConnector DB = DBConnector.connectDB(); // Mohammed Abou Bakr
     private static final long serialVersionUID = 3L;// Mohammed Abou Bakr
@@ -43,7 +43,7 @@ public class TrainingClass {
     public void setId(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -86,7 +86,7 @@ public class TrainingClass {
 
     @Override
     public String toString() {
-        return "TrainingClass{" + "id=" + id + ", name=" + name + ", type=" + type + ", schedule=" + schedule + ", capacity=" + capacity +", Availabilty="+ isAvailable + '}';
+        return "TrainingClass{" + "id=" + id + ", name=" + name + ", type=" + type + ", schedule=" + schedule + ", capacity=" + capacity + ", Availabilty=" + isAvailable + '}';
     }
 
     public static boolean createTrainingClass(TrainingClass trainingClass) {

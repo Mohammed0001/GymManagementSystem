@@ -1,5 +1,8 @@
 package services;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import mms.gymmanagementserver.DBConnector;
 import users.Gymmanager;
 import users.Member;
 
@@ -23,6 +26,9 @@ public class Complaint {
     private String feedback;
     private Gymmanager managedBy;
     private ComplaintState compliantState;
+     private static DBConnector DB = DBConnector.connectDB();
+    private static final long serialVersionUID = 9L;
+
 
     public Complaint(int id, String name, Member complainer, String email, String dateSubmitted, String resolutionDate, String status, String feedback, Gymmanager managedBy, ComplaintState compliantState) {
         this.id = id;
@@ -153,5 +159,23 @@ public class Complaint {
     public String toString() {
         return "Complaint{" + "id=" + id + ", name=" + name + ", complainer=" + complainer + ", email=" + email + ", dateSubmitted=" + dateSubmitted + ", resolutionDate=" + resolutionDate + ", status=" + status + ", feedback=" + feedback + ", managedBy=" + managedBy + ", compliantState=" + compliantState + '}';
     }
+public static boolean createComplaint(Complaint c) throws RemoteException {
+        return DB.inserIntoDB(c, "Complaint");
+    }
 
+    public static ArrayList<Subscription> getAllComplaint() {
+        return DB.readAllFromDB("Complaint", Subscription.class);
+    }
+
+    public static boolean getComplaint(int id) {
+        return DB.readFromDB(id, "Complaint", Complaint.class);
+    }
+
+    public static boolean updateComplaint(Complaint c) throws RemoteException {
+        return DB.updateInDB(c.getId(), c, "Complaint");
+    }
+
+    public static boolean deleteComplaint(Complaint c) throws RemoteException {
+        return DB.deleteFromDB(c.getId(), "Complaint");
+    }
 }
