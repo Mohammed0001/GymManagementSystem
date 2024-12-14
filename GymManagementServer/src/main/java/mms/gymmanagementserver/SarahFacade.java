@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 import rmipack.IMemberService;
+import services.Complaint;
 import services.Progress;
 import services.TrainingClass;
 
@@ -32,4 +33,9 @@ public class SarahFacade extends UnicastRemoteObject implements IMemberService {
     public ArrayList<TrainingClass> getAvailableClasses() throws RemoteException {
         return TrainingClass.getAllClasses();
     }
+    
+    @Override
+    public boolean submitComplaint(Complaint complaint) throws RemoteException {
+    return Complaint.insertComplaintToDB(complaint); 
+}
 }

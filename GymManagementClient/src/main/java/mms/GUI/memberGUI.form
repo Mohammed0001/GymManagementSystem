@@ -34,70 +34,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageEnrolledSessionBTN" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="viewClassesBTN" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="53" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="viewClassesBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="trackProgressBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="submitComplaintsBTN" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="submitComplaintsBTN" min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="greatingLabel" min="-2" pref="206" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                      <Component id="trackProgressBTN" min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="88" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="34" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="27" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Component id="greatingLabel" min="-2" pref="26" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="trackProgressBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="viewClassesBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="manageEnrolledSessionBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="submitComplaintsBTN" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="trackProgressBTN" min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="greatingLabel">
-    </Component>
     <Component class="javax.swing.JButton" name="viewClassesBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Classes"/>
@@ -107,14 +84,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewClassesBTNActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="manageEnrolledSessionBTN">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Manage Enrolled Session"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageEnrolledSessionBTNActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="trackProgressBTN">
@@ -133,10 +102,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitComplaintsBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="HOME"/>
       </Properties>
     </Component>

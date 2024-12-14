@@ -10,6 +10,8 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import mms.controllers.MemberController;
+import users.Person;
+
 
 /**
  *
@@ -23,6 +25,7 @@ public class TrackProgressGUI extends javax.swing.JFrame {
     
     private MemberController memberController;
     private int memberId;
+    Person P;
     
     public TrackProgressGUI(int memberId) {
         this.memberId = memberId;
@@ -51,18 +54,31 @@ public class TrackProgressGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        homeBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Progress");
+
+        homeBTN.setText("Home");
+        homeBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(homeBTN)))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,11 +86,19 @@ public class TrackProgressGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addComponent(homeBTN)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBTNActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+         new memberGUI(P).setVisible(true);
+    }//GEN-LAST:event_homeBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +137,7 @@ public class TrackProgressGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton homeBTN;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
