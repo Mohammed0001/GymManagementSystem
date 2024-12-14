@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package mms.GUI;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -14,80 +15,15 @@ import javax.swing.JTextField;
  *
  * @author hp
  */
-public class StrategyPaymentGUI extends javax.swing.JFrame {
+public class StrategyPaymentsGUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form StrategyPaymentGUI
+     * Creates new form StrategyPaymentsGUI
      */
-    public StrategyPaymentGUI() {
+    public StrategyPaymentsGUI() {
         initComponents();
     }
-private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Gym Management System");
-
-        jTextField1.setText("");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PayPal", "Credit Card", "Bank Transfer" }));
-
-//        jButton1.setText("Submit Payment");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        
-
-        pack();
-
-        // Add ActionListener to the button
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                // Get the input amount as a string
-                String amountText = jTextField1.getText();
-
-                // Get the selected payment method from the combo box
-                Object selectedItem = jComboBox1.getSelectedItem();
-                String paymentMethod = selectedItem != null ? selectedItem.toString() : null;
-
-                // Check for empty input or no selection
-                if (amountText.isEmpty()) {
-                    jTextArea1.setText("Please enter a valid amount.");
-                    return;
-                }
-
-                if (paymentMethod == null || paymentMethod.isEmpty()) {
-                    jTextArea1.setText("Please select a payment method.");
-                    return;
-                }
-
-                try {
-                    // Parse the amount to a double
-                    double amount = Double.parseDouble(amountText);
-
-                    // Simulate processing the payment (replace this with actual logic)
-                    String paymentStatus = "Payment of " + amount + " processed with " + paymentMethod;
-
-                    // Display the result in the text area
-                    jTextArea1.setText(paymentStatus);
-
-                } catch (NumberFormatException ex) {
-                    // Handle invalid number format
-                    jTextArea1.setText("Invalid amount. Please enter a valid number.");
-                }
-            }
-        });
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,22 +131,46 @@ private void initComponents() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StrategyPaymentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StrategyPaymentsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StrategyPaymentGUI().setVisible(true);
+                new StrategyPaymentsGUI().setVisible(true);
             }
         });
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JComboBox<String> getjComboBox1() {
+        return jComboBox1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

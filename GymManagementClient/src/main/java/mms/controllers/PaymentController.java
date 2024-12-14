@@ -11,7 +11,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mms.GUI.StrategyPayments;
+import mms.GUI.StrategyPaymentsGUI;
 import rmi.PaymentStrategy;
 
 /**
@@ -19,10 +19,10 @@ import rmi.PaymentStrategy;
  * @author hp
  */
 public class PaymentController {
-    StrategyPayments gui;
+    StrategyPaymentsGUI gui;
     Registry r;
 
-    public PaymentController(StrategyPayments gui, Registry r) {
+    public PaymentController(StrategyPaymentsGUI gui, Registry r) {
         this.gui = gui;
         this.r = r;
         gui.getjButton1().addActionListener(new GetPayment());
