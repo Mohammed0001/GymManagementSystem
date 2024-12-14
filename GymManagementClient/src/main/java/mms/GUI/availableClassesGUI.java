@@ -43,7 +43,7 @@ private void loadAvailableClasses() {
 private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
         // Navigate to the home screen
         this.setVisible(false);
-        new MemberGUI(p).setVisible(true);
+        new memberGUI(p).setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
