@@ -16,27 +16,20 @@ import services.TrainingClass;
  *
  * @author sarahhali
  */
+
 public class SarahFacade extends UnicastRemoteObject implements IMemberService {
      public SarahFacade() throws RemoteException {
         super();
     }
 
     @Override
-    public Progress getProgressForPerson(int personId) throws RemoteException {
+    public Progress getProgressForPerson(int id) throws RemoteException {
         // Delegate call directly to DBConnector
-        return DBConnector.connectDB().getProgressByPersonId(personId);
+        return Progress.getProgressByPersonId(id);
     }
 
     @Override
-    public List<String> getAvailableClasses() throws RemoteException {
-        // Fetch available classes from DBConnector
-        List<TrainingClass> classes = DBConnector.connectDB().readAllFromDB("TrainingClass", TrainingClass.class);
-        List<String> availableClasses = new ArrayList<>();
-        for (TrainingClass trainingClass : classes) {
-            if (trainingClass.getIsAvailable()) {
-                availableClasses.add(trainingClass.getName());
-            }
-        }
-        return availableClasses;
+    public ArrayList<TrainingClass> getAvailableClasses() throws RemoteException {
+        return TrainingClass.getAllClasses();
     }
 }
