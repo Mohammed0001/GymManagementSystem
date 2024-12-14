@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -45,11 +46,11 @@ public class SubscriptionDTO implements Serializable{
         this.id = id;
     }
 
-    public Stirng getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Stirng name) {
+    public void setName(String name) {
         this.name = name;
     }
 
