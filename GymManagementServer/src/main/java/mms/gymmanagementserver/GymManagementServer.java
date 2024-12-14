@@ -30,6 +30,9 @@ public class GymManagementServer {
 
             MohammedFacade Mohfacade = new MohammedFacade();
             registry.rebind("MohammedFacade", Mohfacade);
+            
+            SarahFacade sarahFacade = new SarahFacade();
+            registry.rebind("SarahFacade", sarahFacade);
 
 //            KarimFacade KarimFacade = new KarimFacade();
 //            registry.rebind("KarimFacade", KarimFacade);

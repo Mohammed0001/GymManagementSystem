@@ -14,7 +14,9 @@ import com.mongodb.client.result.UpdateResult;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.Document;
 import org.bson.Document;
+import services.Progress;
 import users.Person;
 
 /**
@@ -125,6 +127,20 @@ public class DBConnector {
         }
         return result;
     }
+    
+    public Progress getProgressByPersonId(int personId) {
+    collection = database.getCollection("Progress");
+    Progress result = null;
+    try {
+        Document document = collection.find(eq("personId", personId)).first();
+        if (document != null) {
+            result = gson.fromJson(document.toJson(), Progress.class);
+        }
+    } catch (Exception e) {
+        System.out.println("Error fetching progress: " + e.getMessage());
+    }
+    return result;
+}
 
     public boolean runOnce() {
         String dbName = "GymManagement";

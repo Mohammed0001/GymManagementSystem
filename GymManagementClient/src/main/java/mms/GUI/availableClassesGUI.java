@@ -12,7 +12,8 @@ import users.Person;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import mms.controllers.TrainingClassController;
+import mms.controllers.MemberController;
+
 
 /**
  *
@@ -24,19 +25,26 @@ public class availableClassesGUI extends javax.swing.JFrame {
      * Creates new form availableClassesGUI
          */
     Person p;
-    private TrainingClassController trainingClassController;
+    private MemberController memberController;
     
     public availableClassesGUI(Person p) {
         this.p = p;
-        this.trainingClassController = new TrainingClassController();
+        this.memberController = new MemberController();
         initComponents();
-        populateAvailableClassesTable();       
+        loadAvailableClasses();      
     }           
-private void populateAvailableClassesTable() {
-        // Get the table's model
-        DefaultTableModel model = (DefaultTableModel) availableClassesTable.getModel();
-        trainingClassController.populateAvailableClasses(model);
+private void loadAvailableClasses() {
+    DefaultListModel<String> classesModel = memberController.getAvailableClassesModel();
+    DefaultTableModel tableModel = (DefaultTableModel) availableClassesTable.getModel();
+
+    // Clear existing rows
+    tableModel.setRowCount(0);
+
+    // Add rows from the classesModel
+    for (int i = 0; i < classesModel.getSize(); i++) {
+        tableModel.addRow(new Object[]{classesModel.get(i)});
     }
+}
 private void homeBTNActionPerformed(java.awt.event.ActionEvent evt) {
         // Navigate to the home screen
         this.setVisible(false);

@@ -1,4 +1,25 @@
-C:\Users\dell\Desktop\Senior uni\semester 1\AOOSE\project\GymManagementSystem\GymManagementClient\src\main\java\Observer.java
-C:\Users\dell\Desktop\Senior uni\semester 1\AOOSE\project\GymManagementSystem\GymManagementClient\src\main\java\FeedbackClient.java
-C:\Users\dell\Desktop\Senior uni\semester 1\AOOSE\project\GymManagementSystem\GymManagementClient\src\main\java\ComplaintGUI.java
-C:\Users\dell\Desktop\Senior uni\semester 1\AOOSE\project\GymManagementSystem\GymManagementClient\src\main\java\mms\gymmanagementclient\GymManagementClient.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/FeedbackClient.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/Observer.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/AccountantGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/GeneralManagerGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/GymLOGIN.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/GymManagerGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/MemberGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/TrackProgressGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/addressComplaintsGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/availableClassesGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/manageAccountsGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/manageClassesGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/manageEquipmentsGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/manageSubscriptionGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/GUI/viewBranchesReportGUI.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/controllers/ProgressController.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/controllers/TrainingClassController.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/controllers/loginController.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/mms/gymmanagementclient/GymManagementClient.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/rmipack/FacadeInterface.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/rmipack/IUserAuth.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/rmipack/SubscriptionDTO.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/services/Progress.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/services/TrainingClass.java
+/Users/sarahhali/Desktop/GymManagementSystem/GymManagementClient/src/main/java/users/Person.java

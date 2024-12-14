@@ -4,7 +4,7 @@ import users.Person;
 
 /**
  *
- * @author SARAH
+ * @author sarahhali
  */
 public class MemberGUI extends javax.swing.JFrame {
 
@@ -28,6 +28,7 @@ public class MemberGUI extends javax.swing.JFrame {
         trackProgressBTN = new javax.swing.JButton();
         submitComplaintsBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         manageClassesBTN4.setText("Address Complaints");
         manageClassesBTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +69,8 @@ public class MemberGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("HOME");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +92,9 @@ public class MemberGUI extends javax.swing.JFrame {
                         .addGap(182, 182, 182)))
                 .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
+                .addGap(198, 198, 198)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -97,8 +102,13 @@ public class MemberGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(greatingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -127,8 +137,8 @@ public class MemberGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_manageEnrolledSessionBTNActionPerformed
 
     private void trackProgressBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackProgressBTNActionPerformed
-        new manageEquipmentsGUI(p).setVisible(true);
-        this.setVisible(false);
+         new TrackProgressGUI(p.getId()).setVisible(true); // Pass memberId
+         this.setVisible(false);
     }//GEN-LAST:event_trackProgressBTNActionPerformed
 
     private void submitComplaintsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitComplaintsBTNActionPerformed
@@ -145,6 +155,7 @@ public class MemberGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel greatingLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageClassesBTN4;
     private javax.swing.JButton manageEnrolledSessionBTN;
     private javax.swing.JButton submitComplaintsBTN;
