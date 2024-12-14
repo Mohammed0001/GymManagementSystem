@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package mms.gymmanagementserver;
 
 import java.rmi.AlreadyBoundException;
@@ -14,7 +10,7 @@ import rmi.PaymentStrategy;
 
 /**
  *
- * @author mabou
+ * @author Mohammed Abou Bakr
  */
 public class GymManagementServer {
 
@@ -38,4 +34,5 @@ public class GymManagementServer {
         // Outputs that the server is ready
         System.out.println("The server is ready");
     }
+
 }

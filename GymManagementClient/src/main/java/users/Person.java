@@ -1,24 +1,35 @@
+package users;
 
-package rmi;
+import java.io.Serializable;
 
 /**
  *
- * @author Mohammed Abou Bakr 
+ * @author Mohammed Abou Bakr
  */
-public class Person {
-    
+public class Person implements Serializable {
+
     private int id;
     private String name;
     private int phoneNumber;
     private String DOB;
     private String email;
+    private String password;
+    private String role;
+    private static final long serialVersionUID = 1L;
+
+    public Person() {
+    }
+
+    ;
     
-    public Person(int id, String name, int phoneNumber, String DOB, String email) {
+    public Person(int id, String name, int phoneNumber, String DOB, String email, String password, String role) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.DOB = DOB;
         this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     public int getId() {
@@ -60,4 +71,26 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", DOB=" + DOB + ", email=" + email + ", password=" + password + ", Role= " + role + ')';
+    }
+
 }
