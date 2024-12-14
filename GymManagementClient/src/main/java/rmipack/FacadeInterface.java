@@ -5,6 +5,7 @@
  */
 package rmipack;
 
+import services.SubscriptionDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

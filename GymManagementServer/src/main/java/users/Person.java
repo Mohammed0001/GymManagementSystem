@@ -118,7 +118,14 @@ public class Person implements Serializable {
     }
 
     public static Person getAccount(int id) {
-        return DB.readFromDB(id,"Person", Person.class);
+        return DB.readFromDB(id, "Person", Person.class);
     }
 
+    public static boolean updateAccount(Person p) throws RemoteException {
+        return DB.updateInDB(p.getId(), p, "Person");
+    }
+
+    public static boolean deleteAccount(Person p) throws RemoteException {
+        return DB.deleteFromDB(p.getId(), "Person");
+    }
 }

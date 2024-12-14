@@ -20,12 +20,8 @@ public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
 
     }
 
-    
-    
-    
 //----------------------------------------------------------------------------------
 //    PERSON CRUD OPERATIONS IN IUserAuth
-    
     @Override
     public Person login(String email, String password) throws RemoteException {
         return Person.login(email, password);
@@ -45,6 +41,18 @@ public class MohammedFacade extends UnicastRemoteObject implements IUserAuth {
     public Person getAccount(int id) throws RemoteException {
         return Person.getAccount(id);
     }
+
+    @Override
+    public boolean updateAccount(Person p) throws RemoteException {
+
+        return Person.updateAccount(p);
+    }
+
+    @Override
+    public boolean deleteAccount(Person p) throws RemoteException {
+        return Person.deleteAccount(p);
+    }
+    
     
 //----------------------------------------------------------------------------------
 
