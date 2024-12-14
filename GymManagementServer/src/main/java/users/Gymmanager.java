@@ -2,8 +2,11 @@
 package users;
 
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 import mms.gymmanagementserver.Branch;
+import static users.Person.DB;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -46,6 +49,24 @@ public class Gymmanager extends Person {
         return staffDetails.toString();
     }
    
-    
+    public static boolean createAccount(Gymmanager g) throws RemoteException {
+        return DB.inserIntoDB(g, "Gymmanager");
+    }
+
+    public static ArrayList<Gymmanager> getAllGymmanager() {
+        return DB.readAllFromDB("Gymmanager", Gymmanager.class);
+    }
+
+    public static Person getAccount(int id) {
+        return DB.readFromDB(id, "Gymmanager", Gymmanager.class);
+    }
+
+    public static boolean updateAccount(Gymmanager g) throws RemoteException {
+        return DB.updateInDB(g.getId(), g, "Gymmanager");
+    }
+
+    public static boolean deleteAccount(Gymmanager g) throws RemoteException {
+        return DB.deleteFromDB(g.getId(), "Gymmanager");
+    }
    
 }

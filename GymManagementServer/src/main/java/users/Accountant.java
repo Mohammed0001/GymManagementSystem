@@ -1,6 +1,10 @@
 
 package users;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import static users.Person.DB;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -29,5 +33,25 @@ public class Accountant extends Person{
     @Override
     public String toString() {
         return "Accountant{" + "accessLevel=" + accessLevel + '}';
+    }
+    
+     public static boolean createAccount(Accountant a) throws RemoteException {
+        return DB.inserIntoDB(a, "Accountant");
+    }
+
+    public static ArrayList<Accountant> getAllAccountant () {
+        return DB.readAllFromDB("Accountant ", Accountant.class);
+    }
+
+    public static Person getAccount(int id) {
+        return DB.readFromDB(id, "Accountant ", Accountant.class);
+    }
+
+    public static boolean updateAccount(Accountant a) throws RemoteException {
+        return DB.updateInDB(a.getId(), a, "Accountant ");
+    }
+
+    public static boolean deleteAccount(Accountant a) throws RemoteException {
+        return DB.deleteFromDB(a.getId(), "Accountant");
     }
 }
