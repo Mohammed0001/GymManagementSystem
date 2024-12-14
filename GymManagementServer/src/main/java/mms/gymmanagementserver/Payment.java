@@ -10,7 +10,7 @@ import rmi.PaymentStrategy;
 import java.util.Date;
 
 public class Payment extends UnicastRemoteObject implements PaymentStrategy {
-    private int id;
+    private int id; 
     private int memberID;
     private double amount;
     private int transactionID;
@@ -28,7 +28,7 @@ public class Payment extends UnicastRemoteObject implements PaymentStrategy {
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.currency = currency;
-        this.status = "Pending";
+        this.status = "Pending still";
         this.date = new Date().toString();
         this.paymentStrategy = paymentStrategy;
     }
