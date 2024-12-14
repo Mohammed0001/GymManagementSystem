@@ -16,7 +16,7 @@ public class Progress implements IMemberProgressROI {
     @Expose
     private double muscleMass;
     
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 4L;
 
 
     public Progress(int id, double weight, double bodyFatPercentage, double muscleMass) {
