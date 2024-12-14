@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class SubscriptionDTO implements Serializable{
     // Attributes
     private int id;
+    private String name;
     private String type;
     private double price;
     private boolean isRenewable;
@@ -22,9 +23,10 @@ public class SubscriptionDTO implements Serializable{
     private String endDate;
 
     // Constructor
-    public SubscriptionDTO(int id, String type, double price, boolean isRenewable,
+    public SubscriptionDTO(int id, String name, String type, double price, boolean isRenewable,
                            Payment payment, double discount, String startDate, String endDate) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.price = price;
         this.isRenewable = isRenewable;
@@ -41,6 +43,14 @@ public class SubscriptionDTO implements Serializable{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Stirng getName() {
+        return name;
+    }
+
+    public void setName(Stirng name) {
+        this.name = name;
     }
 
     public String getType() {
