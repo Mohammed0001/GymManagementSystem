@@ -5,7 +5,7 @@ import java.io.Serializable;
 import mms.gymmanagementserver.DBConnector;
 import services.Subscription;
 import services.IMemberProgressROI;
-import services.MemberObserver;
+import rmipack.MemberObserver;
 
 /**
  *
